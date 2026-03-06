@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda — SKO FY27</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+  <!-- Mobile Nav -->
+  <button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
+  <div class="mobile-nav-overlay"></div>
+  <div class="mobile-nav-drawer">
+    <a href="welcome.html">Welcome</a>
+    <a href="general-info.html">General Info</a>
+    <a href="travel.html">Travel &amp; Expenses</a>
+    <a href="hotel.html">Hotel</a>
+    <a href="agenda.html">Agenda</a>
+    <a href="faq.html">FAQ</a>
+    <div class="mobile-nav-actions">
+      <a href="#" class="btn btn-outline">My Profile</a>
+      <a href="index.html" class="btn btn-ghost">Logout</a>
+    </div>
+  </div>
+
+  <!-- Top Nav -->
+  <header class="top-nav">
+    <a href="index.html" class="nav-logo"><img src="../shared/logos/Nutanix-Logo-Charcoal-Gray-Digital.svg" alt="Nutanix" height="22"></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="welcome.html">Welcome</a></li>
+        <li><a href="general-info.html">General Info</a></li>
+        <li><a href="travel.html">Travel &amp; Expenses</a></li>
+        <li><a href="hotel.html">Hotel</a></li>
+        <li><a href="agenda.html">Agenda</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a href="#" class="nav-profile">My Profile</a>
+      <a href="index.html" class="nav-logout">Logout</a>
+    </div>
+  </header>
+
+  <!-- Page Banner -->
+  <div class="page-banner">
+    <h1>Agenda</h1>
+  </div>
+
+  <!-- Content Area -->
+  <div class="content-area">
+
+    <p class="text-muted mb-2" data-animate>Times are displayed in the local Las Vegas time zone (PDT). Agenda subject to change.</p>
+
+    <!-- Day Tabs -->
+    <div class="day-tabs" data-animate>
+      <button class="day-tab is-active" data-tab="day0">Sunday</button>
+      <button class="day-tab" data-tab="day1">Monday</button>
+      <button class="day-tab" data-tab="day2">Tuesday</button>
+      <button class="day-tab" data-tab="day3">Wednesday</button>
+    </div>
+
+    <!-- Day 0: Sunday -->
+    <div class="day-panel is-active" id="day0" data-animate>
+      <div class="agenda-grid">
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">12:00 PM - 7:00 PM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Registration</h3>
+            <span class="session-room-tag">Main Lobby</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Check in at the registration desk located in the main lobby.</p>
+              <div class="session-meta"><span><strong>Type:</strong> General</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 1: Monday -->
+    <div class="day-panel" id="day1">
+      <div class="agenda-grid">
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">7:00 AM - 7:30 PM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Registration</h3>
+            <span class="session-room-tag">Main Lobby</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">7:00 AM - 8:30 AM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Breakfast</h3>
+            <span class="session-room-tag">Grand Ballroom Foyer</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">8:30 AM - 10:00 AM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Opening Keynote</h3>
+            <span class="session-room-tag">Grand Ballroom</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+              <div class="session-meta">
+                <span><strong>Type:</strong> Keynote</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">10:00 AM - 10:30 AM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Morning Break</h3>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">10:30 AM - 11:45 AM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Lorem Ipsum Platform Keynote</h3>
+            <span class="session-room-tag">Grand Ballroom</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+              <div class="session-meta">
+                <span><strong>Type:</strong> Keynote</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">11:45 AM - 1:00 PM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Lunch</h3>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">1:00 PM - 1:50 PM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Lorem vs Ipsum: Dissecting Architectures</h3>
+            <span class="session-room-tag">Juniper Ballroom 1-2</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <div class="session-meta">
+                <span><strong>Speakers:</strong> Lorem Ipsum, Dolor Sit</span>
+                <span><strong>Type:</strong> Breakouts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">1:00 PM - 1:50 PM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Drive FY27 Success with Programs</h3>
+            <span class="session-room-tag">Cedar Room</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="session-meta">
+                <span><strong>Type:</strong> Breakouts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">3:30 PM - 4:20 PM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Product Positioning and Art of the Deal</h3>
+            <span class="session-room-tag">Pine Room</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="session-meta">
+                <span><strong>Type:</strong> Breakouts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">4:40 PM - 5:30 PM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Be A Better SE With AI</h3>
+            <span class="session-room-tag">Elm Room</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="session-meta">
+                <span><strong>Type:</strong> Breakouts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Day 2: Tuesday -->
+    <div class="day-panel" id="day2">
+      <div class="agenda-grid">
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">7:00 AM - 8:30 AM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Breakfast</h3>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner"><p>Lorem ipsum dolor sit amet.</p></div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">8:30 AM - 10:00 AM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>General Session</h3>
+            <span class="session-room-tag">Grand Ballroom</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="session-meta"><span><strong>Type:</strong> Keynote</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">3:00 PM - 3:50 PM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Building Strategic Success With an Account Plan</h3>
+            <span class="session-room-tag">Birch Room</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="session-meta"><span><strong>Type:</strong> Breakouts</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">3:00 PM - 3:50 PM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Maturing Executive Engagement</h3>
+            <span class="session-room-tag">Oak Room</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="session-meta"><span><strong>Type:</strong> Breakouts</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">Evening</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Free Night &mdash; Dinner on Own</h3>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet. Team dinners encouraged &mdash; dinner charges capped at $125 per person.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Day 3: Wednesday -->
+    <div class="day-panel" id="day3">
+      <div class="agenda-grid">
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">7:00 AM - 8:30 AM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Breakfast</h3>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner"><p>Lorem ipsum dolor sit amet.</p></div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">8:30 AM - 10:00 AM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Closing Keynote</h3>
+            <span class="session-room-tag">Grand Ballroom</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.</p>
+              <div class="session-meta"><span><strong>Type:</strong> Keynote</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">10:30 AM - 12:00 PM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Regional Breakout Sessions</h3>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="session-meta"><span><strong>Type:</strong> Regional Meetings</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">12:00 PM - 1:00 PM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Lunch</h3>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner"><p>Lorem ipsum dolor sit amet.</p></div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">1:00 PM - 2:30 PM</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Afternoon Workshops</h3>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              <div class="session-meta"><span><strong>Type:</strong> Workshops</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="session-card">
+          <div class="session-card-header">
+            <span class="session-time-badge">Evening</span>
+            <span class="session-expand-icon">+</span>
+            <h3>Global Awards Dinner</h3>
+            <span class="session-room-tag">Grand Ballroom</span>
+          </div>
+          <div class="session-card-body">
+            <div class="session-card-body-inner">
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-contact">
+        <strong>SKO FY27 Registration Team</strong><br>
+        Email: <a href="#">sko@ntnxevents.com</a> &middot; Hours: Monday&ndash;Friday, 8:00 AM&ndash;5:00 PM PDT
+      </div>
+      <div>&copy; <span id="year"></span> Nutanix, Inc.</div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js"></script>
+  <script src="../shared/site-switcher.js"></script>
+</body>
+</html>

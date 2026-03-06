@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nutanix SKO FY27 — Design Directions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --charcoal: #1F1F20;
+      --charcoal-light: #2A2A2B;
+      --iris: #7855FA;
+      --iris-light: #9B7FFF;
+      --white: #FFFFFF;
+      --gray-400: #9CA3AF;
+      --gray-600: #4B5563;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--charcoal);
+      color: var(--white);
+      min-height: 100vh;
+    }
+
+    .dashboard {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 60px 32px;
+    }
+
+    .dashboard-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .dashboard-header img {
+      height: 44px;
+      margin-bottom: 24px;
+    }
+
+    .dashboard-header h1 {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--gray-400);
+      letter-spacing: 0.04em;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--charcoal-light);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(120, 85, 250, 0.15);
+    }
+
+    .card-preview {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background: var(--charcoal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-preview iframe {
+      width: 1280px;
+      height: 1280px;
+      border: none;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+
+    .card-body {
+      padding: 16px 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--gray-400);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-body svg {
+      width: 16px;
+      height: 16px;
+      opacity: 0.5;
+      transition: opacity 0.15s ease;
+    }
+
+    .card:hover .card-body svg {
+      opacity: 1;
+    }
+
+    .card:hover .card-body {
+      color: var(--white);
+    }
+
+    @media (max-width: 740px) {
+      .cards { grid-template-columns: 1fr; }
+      .dashboard { padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard">
+    <div class="dashboard-header">
+      <img src="shared/logos/Nutnaix-skofy27-wht.svg" alt="Nutanix SKO FY27">
+      <h1>Design Directions</h1>
+    </div>
+
+    <div class="cards">
+      <a class="card" href="01/index.html">
+        <div class="card-preview">
+          <iframe src="01/index.html" loading="lazy" tabindex="-1"></iframe>
+        </div>
+        <div class="card-body">
+          View Web Design 01
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <a class="card" href="02/index.html">
+        <div class="card-preview">
+          <iframe src="02/index.html" loading="lazy" tabindex="-1"></iframe>
+        </div>
+        <div class="card-body">
+          View Web Design 02
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <a class="card" href="03/index.html">
+        <div class="card-preview">
+          <iframe src="03/index.html" loading="lazy" tabindex="-1"></iframe>
+        </div>
+        <div class="card-body">
+          View Web Design 03
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <a class="card" href="04/index.html">
+        <div class="card-preview">
+          <iframe src="04/index.html" loading="lazy" tabindex="-1"></iframe>
+        </div>
+        <div class="card-body">
+          View Web Design 04
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+
+      <a class="card" href="05/index.html">
+        <div class="card-preview">
+          <iframe src="05/index.html" loading="lazy" tabindex="-1"></iframe>
+        </div>
+        <div class="card-body">
+          View Web Design 05
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    // Scale iframes to fit square preview after load
+    document.querySelectorAll('.card-preview').forEach(function(preview) {
+      var iframe = preview.querySelector('iframe');
+      function scaleIframe() {
+        var previewWidth = preview.offsetWidth;
+        var scale = previewWidth / 1280;
+        iframe.style.transform = 'translate(-50%, -50%) scale(' + scale + ')';
+      }
+      iframe.addEventListener('load', scaleIframe);
+      window.addEventListener('resize', scaleIframe);
+      scaleIframe();
+    });
+  </script>
+</body>
+</html>
