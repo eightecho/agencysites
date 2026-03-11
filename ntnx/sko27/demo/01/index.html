@@ -45,14 +45,7 @@
       background: linear-gradient(135deg, #eaeaea 0%, #f2f2f3 25%, #e8e8e9 50%, #f0f0f1 75%, #eaeaea 100%);
     }
 
-    /* Left accent bar */
-    .login-accent {
-      position: absolute;
-      top: 0; left: 0;
-      width: 6px; height: 100%;
-      background: linear-gradient(180deg, var(--iris) 0%, var(--iris-deep) 100%);
-      z-index: 10;
-    }
+    /* Left accent bar — removed */
 
     /* Static light streaks */
     .hero-streaks {
@@ -116,7 +109,7 @@
     }
 
     .login-lockup { margin-bottom: 32px; }
-    .login-lockup img { height: 44px; }
+    .login-lockup img { height: 36px; image-rendering: optimizeQuality; }
 
     .login-title {
       font-family: 'Montserrat', sans-serif;
@@ -183,7 +176,6 @@
 <body>
 
   <div class="login-page">
-    <div class="login-accent"></div>
 
     <!-- Static grayscale hero graphic -->
     <div class="hero-streaks">
