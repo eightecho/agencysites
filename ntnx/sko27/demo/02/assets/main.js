@@ -143,7 +143,11 @@
       }
 
       tocLinks.forEach(function (l) { l.classList.remove('is-active'); });
-      if (active) active.link.classList.add('is-active');
+      if (active) {
+        active.link.classList.add('is-active');
+      } else if (sections.length) {
+        sections[0].link.classList.add('is-active');
+      }
     }
 
     window.addEventListener('scroll', onScroll, { passive: true });

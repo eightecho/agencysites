@@ -7,8 +7,113 @@
   <title>Hotel — SKO FY27</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    /* ===== Global Style Guide Overrides ===== */
+    :root {
+      --font-display: 'Montserrat', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+    * {
+      text-transform: none !important;
+      font-family: 'Montserrat', sans-serif !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif !important;
+      text-transform: none !important;
+    }
+    h1 { font-weight: 800; letter-spacing: 0.02em; }
+    h2 { font-weight: 700; letter-spacing: 0.01em; }
+    h3 { font-weight: 600; }
+    h4 { font-weight: 600; }
+    .top-nav {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      height: auto;
+      min-height: 70px;
+    }
+    .top-nav > nav { justify-self: center; }
+    .nav-links { margin: 0; gap: 2rem; align-items: baseline; }
+    .nav-logo img { height: 70px; }
+    .nav-links a { font-size: 19px; font-weight: 500; }
+    .nav-links a::after { display: none; }
+    .nav-links a:hover { color: var(--iris); }
+    .nav-links a.is-active { font-weight: 700; color: var(--iris); }
+    .nav-right { justify-self: end; }
+    .nav-profile { font-size: 16px; padding: 0.5rem 1.3rem; }
+    .nav-profile:hover { color: var(--white); }
+    .nav-logout { font-size: 16px; font-weight: 600; }
+    .nav-logout:hover { color: var(--iris); }
+    .site-footer { font-size: 1em; }
+    .mobile-nav-drawer a { font-size: 0.9em; }
+    .mobile-nav-drawer .mobile-nav-actions {
+      gap: 0.5rem;
+    }
+    .mobile-nav-drawer .mobile-nav-actions .btn {
+      font-size: 16px;
+      font-weight: 600;
+      padding: 0.5rem 1.3rem;
+      text-align: center;
+      color: var(--white);
+    }
+    .mobile-nav-drawer .mobile-nav-actions .nav-logout {
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+    /* TOC sidebar overrides */
+    .toc-sidebar a {
+      font-size: 1rem;
+      border-left-width: 3px;
+    }
+    .toc-sidebar a:hover {
+      border-color: var(--iris);
+    }
+    .toc-sidebar a.is-active {
+      border-left-width: 3px;
+    }
+    /* Content section h2 */
+    .toc-content h2,
+    .content-area h2 {
+      font-weight: 500;
+      font-size: 2rem;
+    }
+    /* Page banner — diagonal reveal animation */
+    .page-banner {
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 0 0, -20% 100%, 0 100%);
+      animation: bannerWipe 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.15s forwards;
+    }
+    .page-banner .banner-nexus-art {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    .page-banner .banner-nexus-art svg {
+      width: 100%;
+      height: 100%;
+    }
+    .page-banner h1 {
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeInUp 0.5s ease 0.6s forwards;
+    }
+    @keyframes bannerWipe {
+      0% { clip-path: polygon(0 0, 0 0, -20% 100%, 0 100%); }
+      100% { clip-path: polygon(0 0, 120% 0, 100% 100%, 0 100%); }
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
 
@@ -25,14 +130,14 @@
     <a href="agenda.html">Agenda</a>
     <a href="faq.html">FAQ</a>
     <div class="mobile-nav-actions">
-      <a href="#" class="btn btn-outline">My Profile</a>
-      <a href="index.html" class="btn btn-ghost">Logout</a>
+      <a href="#" class="btn btn-primary">My Profile</a>
+      <a href="index.html" class="nav-logout">Logout</a>
     </div>
   </div>
 
   <!-- Top Nav -->
   <header class="top-nav">
-    <a href="index.html" class="nav-logo"><img src="../shared/logos/Nutanix-Logo-Charcoal-Gray-Digital.svg" alt="Nutanix" height="22"></a>
+    <a href="index.html" class="nav-logo"><img src="../shared/logos/ntnx-sko17-logo-stacked-horiz-blk.svg" alt="Nutanix Sales Kickoff" height="32"></a>
     <nav>
       <ul class="nav-links">
         <li><a href="welcome.html">Welcome</a></li>
@@ -51,6 +156,29 @@
 
   <!-- Page Banner -->
   <div class="page-banner">
+    <!-- Nexus background pattern -->
+    <div class="banner-nexus-art" aria-hidden="true">
+      <svg viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="nxLine" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#nxLine)" stroke-width="1.5">
+          <path d="M100 50 L400 350 L100 650 L-200 350 Z"/>
+          <path d="M500 200 L750 450 L500 700 L250 450 Z"/>
+          <path d="M300 -100 L600 200 L300 500 L0 200 Z"/>
+          <path d="M600 500 L850 750 L600 1000 L350 750 Z"/>
+        </g>
+        <g opacity="0.14" stroke="#FFFFFF" stroke-width="0.5">
+          <line x1="0" y1="0" x2="800" y2="900"/>
+          <line x1="800" y1="0" x2="0" y2="900"/>
+          <line x1="400" y1="0" x2="400" y2="900"/>
+          <line x1="0" y1="450" x2="800" y2="450"/>
+        </g>
+      </svg>
+    </div>
     <h1>Hotel</h1>
   </div>
 
@@ -79,57 +207,60 @@
 
       <section id="location" class="content-section" data-animate>
         <h2>Location</h2>
-        <p><strong>Lorem Ipsum Resort &amp; Casino</strong><br>
-        1234 S Lorem Ipsum Blvd<br>
-        Las Vegas, NV 89158<br>
-        Telephone: (866) 555-7757<br>
-        <a href="#">Website</a> &middot; <a href="#">Dining Options</a></p>
+        <p><strong>Lorem Ipsum Dolor Sit</strong><br>
+        Vivamus elementum semper nisi<br>
+        Aenean vulputate eleifend tellus<br>
+        Lorem: (000) 000-0000<br>
+        <a href="#">Lorem Ipsum</a> &middot; <a href="#">Dolor Sit Amet</a></p>
       </section>
 
       <section id="room-block" class="content-section" data-animate>
         <h2>Hotel Room Block</h2>
-        <p>A block of hotel rooms has been reserved at the Lorem Ipsum Resort. You will provide your hotel accommodation details during the online registration process. <strong>Please do not contact the hotel directly.</strong></p>
+        <p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut mollis sed, nonummy id metus. Nullam accumsan lorem in dui. <strong>Cras ultricies ligula sed magna dictum porta.</strong></p>
       </section>
 
       <section id="arrival-policy" class="content-section" data-animate>
         <h2>Arrival Policy</h2>
-        <p>All attendees are expected to arrive on Sunday, Lorem 17. Lorem Ipsum will pay for the nights of Sunday, Lorem 17; Monday, Lorem 18; Tuesday, Lorem 19; and Wednesday, Lorem 20 (check-out on Thursday, Lorem 21).</p>
+        <p>Praesent blandit laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas neque sit amet convallis pulvinar justo nulla aliquet porttitor.</p>
       </section>
 
       <section id="extensions" class="content-section" data-animate>
         <h2>Extensions</h2>
-        <p>If you would like to request to extend your stay beyond your approved dates, you may contact the SKO FY27 Registration team at <a href="#">sko@ntnxevents.com</a>. All extensions will be at your own expense, and no exceptions will be made.</p>
-        <div class="callout mt-2"><strong>Please note:</strong> Any pre- and post-extensions are not guaranteed by the hotel and are subject to hotel availability.</div>
+        <p>Maecenas ullamcorper dui et placerat feugiat eros tortor convallis at <a href="#">lorem@ipsum.com</a>. Integer tincidunt cras dapibus vivamus elementum semper nisi.</p>
+        <div class="callout mt-2"><strong>Lorem ipsum:</strong> Sed augue ipsum egestas nec vestibulum et molestie sit amet feugiat in lacus dapibus condimentum.</div>
       </section>
 
       <section id="internet" class="content-section" data-animate>
         <h2>Internet Access</h2>
-        <p>In-room wireless internet access is included in the nightly room rate. Instructions on accessing the guest room internet will be provided upon check-in at the hotel. Wi-Fi will be provided in all meeting spaces.</p>
+        <p>Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non nunc. Vestibulum fringilla pede sit amet augue.</p>
       </section>
 
       <section id="smoking" class="content-section" data-animate>
         <h2>Smoking Policy</h2>
-        <p>Smoking is not permitted in guest rooms or public spaces. Smoking is permitted only in designated outdoor areas. Any fees associated with nonadherence to the smoking policy are the responsibility of the individual.</p>
+        <p>In turpis pellentesque egestas neque sit amet convallis pulvinar. Cras dapibus vivamus elementum semper nisi aenean vulputate eleifend tellus. Nullam dictum felis eu pede mollis pretium integer tincidunt.</p>
+        <p>Fusce vulputate eleifend sapien vestibulum purus quam scelerisque ut mollis sed nonummy id metus. Nullam accumsan lorem in dui cras ultricies ligula sed magna dictum porta.</p>
       </section>
 
       <section id="gratuity" class="content-section" data-animate>
         <h2>Gratuity Guidelines</h2>
-        <p>Gratuities should be paid at your own discretion and expensed per the <a href="#">Lorem Ipsum Travel &amp; Expense Policy</a>.</p>
+        <p>Donec pede justo fringilla vel aliquet nec vulputate eget arcu. In enim justo rhoncus ut imperdiet a venenatis vitae justo. Nullam dictum felis eu pede mollis pretium: <a href="#">In Enim Justo Rhoncus</a>.</p>
+        <p>Integer tincidunt cras dapibus vivamus elementum semper nisi. Aenean vulputate eleifend tellus aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
       </section>
 
       <section id="hotel-charges" class="content-section" data-animate>
         <h2>Hotel Charges</h2>
-        <p>A valid credit card is required by the hotel upon check-in for all hotel charges not covered. Upon check-in, you will be charged for any room nights not covered, along with applicable taxes and fees. Additionally, a hold of $150.00 per day, up to a maximum of 4 nights, or $600.00 total, will be placed on your credit card for incidentals.</p>
+        <p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt cras dapibus. Vivamus elementum semper nisi aenean vulputate eleifend tellus. Aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
       </section>
 
       <section id="cancellation" class="content-section" data-animate>
         <h2>Cancellation Policy</h2>
-        <p>Any changes or cancellations to your hotel reservation must be sent to <a href="#">sko@ntnxevents.com</a>. Failure to cancel pre- or post-extension reservations at least <strong>72 hours</strong> prior to your arrival will result in a penalty fee of one night's room charge plus taxes and fees.</p>
+        <p>Aliquam lorem ante dapibus in viverra quis feugiat <a href="#">lorem@ipsum.com</a>. Phasellus viverra nulla ut metus varius laoreet <strong>quisque rutrum</strong> aenean imperdiet etiam ultricies nisi vel augue.</p>
       </section>
 
       <section id="accessibility" class="content-section" data-animate>
         <h2>Hotel Accessibility</h2>
-        <p>The Lorem Ipsum Resort provides accessible rooms. If you require an accessible room, please contact <a href="#">sko@ntnxevents.com</a>.</p>
+        <p>Curabitur ullamcorper ultricies nisi nam eget dui. Etiam rhoncus maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet adipiscing sem neque sed ipsum: <a href="#">lorem@ipsum.com</a>.</p>
+        <p>Nam quam nunc blandit vel luctus pulvinar hendrerit id lorem. Maecenas nec odio et ante tincidunt tempus donec vitae sapien ut libero venenatis faucibus.</p>
       </section>
 
     </div>
@@ -140,13 +271,13 @@
     <div class="footer-inner">
       <div class="footer-contact">
         <strong>SKO FY27 Registration Team</strong><br>
-        Email: <a href="#">sko@ntnxevents.com</a> &middot; Hours: Monday&ndash;Friday, 8:00 AM&ndash;5:00 PM PDT
+        Email: <a href="#">lorem@ipsum.com</a> &middot; Hours: Monday&ndash;Friday, 8:00 AM&ndash;5:00 PM PDT
       </div>
       <div>&copy; <span id="year"></span> Nutanix, Inc.</div>
     </div>
   </footer>
 
-  <script src="assets/main.js"></script>
+  <script src="assets/main.js?v=2"></script>
   <script src="../shared/site-switcher.js"></script>
 </body>
 </html>

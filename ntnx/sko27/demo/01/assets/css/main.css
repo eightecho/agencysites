@@ -1,5 +1,5 @@
 @import url(fontawesome-all.min.css);
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap");
 /*
 */
 html, body, div, span, applet, object,
@@ -2281,13 +2281,8 @@ button,
   --ntnx-white: #FFFFFF;
 }
 
-body {
-  font-family: 'Inter', 'Open Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Bebas Neue', 'Roboto Slab', sans-serif;
-  letter-spacing: 0.05em;
+body, h1, h2, h3, h4, h5, h6, p, a, li, span, input, button, textarea, select {
+  font-family: 'Montserrat', sans-serif !important;
 }
 
 #sidebar {

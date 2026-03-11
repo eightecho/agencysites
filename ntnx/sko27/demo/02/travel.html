@@ -7,8 +7,113 @@
   <title>Travel & Expenses — SKO FY27</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    /* ===== Global Style Guide Overrides ===== */
+    :root {
+      --font-display: 'Montserrat', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+    * {
+      text-transform: none !important;
+      font-family: 'Montserrat', sans-serif !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif !important;
+      text-transform: none !important;
+    }
+    h1 { font-weight: 800; letter-spacing: 0.02em; }
+    h2 { font-weight: 700; letter-spacing: 0.01em; }
+    h3 { font-weight: 600; }
+    h4 { font-weight: 600; }
+    .top-nav {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      height: auto;
+      min-height: 70px;
+    }
+    .top-nav > nav { justify-self: center; }
+    .nav-links { margin: 0; gap: 2rem; align-items: baseline; }
+    .nav-logo img { height: 70px; }
+    .nav-links a { font-size: 19px; font-weight: 500; }
+    .nav-links a::after { display: none; }
+    .nav-links a:hover { color: var(--iris); }
+    .nav-links a.is-active { font-weight: 700; color: var(--iris); }
+    .nav-right { justify-self: end; }
+    .nav-profile { font-size: 16px; padding: 0.5rem 1.3rem; }
+    .nav-profile:hover { color: var(--white); }
+    .nav-logout { font-size: 16px; font-weight: 600; }
+    .nav-logout:hover { color: var(--iris); }
+    .site-footer { font-size: 1em; }
+    .mobile-nav-drawer a { font-size: 0.9em; }
+    .mobile-nav-drawer .mobile-nav-actions {
+      gap: 0.5rem;
+    }
+    .mobile-nav-drawer .mobile-nav-actions .btn {
+      font-size: 16px;
+      font-weight: 600;
+      padding: 0.5rem 1.3rem;
+      text-align: center;
+      color: var(--white);
+    }
+    .mobile-nav-drawer .mobile-nav-actions .nav-logout {
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+    /* TOC sidebar overrides */
+    .toc-sidebar a {
+      font-size: 1rem;
+      border-left-width: 3px;
+    }
+    .toc-sidebar a:hover {
+      border-color: var(--iris);
+    }
+    .toc-sidebar a.is-active {
+      border-left-width: 3px;
+    }
+    /* Content section h2 */
+    .toc-content h2,
+    .content-area h2 {
+      font-weight: 500;
+      font-size: 2rem;
+    }
+    /* Page banner — diagonal reveal animation */
+    .page-banner {
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 0 0, -20% 100%, 0 100%);
+      animation: bannerWipe 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.15s forwards;
+    }
+    .page-banner .banner-nexus-art {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    .page-banner .banner-nexus-art svg {
+      width: 100%;
+      height: 100%;
+    }
+    .page-banner h1 {
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeInUp 0.5s ease 0.6s forwards;
+    }
+    @keyframes bannerWipe {
+      0% { clip-path: polygon(0 0, 0 0, -20% 100%, 0 100%); }
+      100% { clip-path: polygon(0 0, 120% 0, 100% 100%, 0 100%); }
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
 
@@ -25,14 +130,14 @@
     <a href="agenda.html">Agenda</a>
     <a href="faq.html">FAQ</a>
     <div class="mobile-nav-actions">
-      <a href="#" class="btn btn-outline">My Profile</a>
-      <a href="index.html" class="btn btn-ghost">Logout</a>
+      <a href="#" class="btn btn-primary">My Profile</a>
+      <a href="index.html" class="nav-logout">Logout</a>
     </div>
   </div>
 
   <!-- Top Nav -->
   <header class="top-nav">
-    <a href="index.html" class="nav-logo"><img src="../shared/logos/Nutanix-Logo-Charcoal-Gray-Digital.svg" alt="Nutanix" height="22"></a>
+    <a href="index.html" class="nav-logo"><img src="../shared/logos/ntnx-sko17-logo-stacked-horiz-blk.svg" alt="Nutanix Sales Kickoff" height="32"></a>
     <nav>
       <ul class="nav-links">
         <li><a href="welcome.html">Welcome</a></li>
@@ -51,6 +156,29 @@
 
   <!-- Page Banner -->
   <div class="page-banner">
+    <!-- Nexus background pattern -->
+    <div class="banner-nexus-art" aria-hidden="true">
+      <svg viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="nxLine" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#nxLine)" stroke-width="1.5">
+          <path d="M100 50 L400 350 L100 650 L-200 350 Z"/>
+          <path d="M500 200 L750 450 L500 700 L250 450 Z"/>
+          <path d="M300 -100 L600 200 L300 500 L0 200 Z"/>
+          <path d="M600 500 L850 750 L600 1000 L350 750 Z"/>
+        </g>
+        <g opacity="0.14" stroke="#FFFFFF" stroke-width="0.5">
+          <line x1="0" y1="0" x2="800" y2="900"/>
+          <line x1="800" y1="0" x2="0" y2="900"/>
+          <line x1="400" y1="0" x2="400" y2="900"/>
+          <line x1="0" y1="450" x2="800" y2="450"/>
+        </g>
+      </svg>
+    </div>
     <h1>Travel &amp; Expenses</h1>
   </div>
 
@@ -75,61 +203,61 @@
 
       <section id="flights" class="content-section" data-animate>
         <h2>Flights</h2>
-        <p><strong>All flights should be booked to Lorem Ipsum International Airport (LIA).</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Please visit the <a href="#">Travel Intranet Page</a> for information.</p>
-        <p>Lorem ipsum dolor sit amet: <a href="#">Lorem Ipsum Travel and Expense Policy</a>.</p>
+        <p><strong>Suspendisse potenti nullam porttitor lacus at turpis donec posuere.</strong> Aenean massa cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis sem. Nulla consequat massa quis enim. <a href="#">Lorem Ipsum Dolor</a> sit amet consectetur.</p>
+        <p>In enim justo, rhoncus ut imperdiet: <a href="#">Vestibulum Ante Ipsum Primis</a>.</p>
       </section>
 
       <section id="travel" class="content-section" data-animate>
         <h2>Travel</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong><u>Sunday, Lorem 17, is the approved arrival date for all attendees.</u></strong> The event will conclude on Wednesday, Lorem 20 in the evening. <strong><u>Thursday, Lorem 21 is the departure date for all attendees.</u></strong></p>
-        <div class="callout mt-2">Any extensions before or after the specified dates will be your responsibility and will not be covered by the event budget.</div>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque. <strong><u>Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</u></strong> Ut enim ad minima veniam quis nostrum exercitationem. <strong><u>Quis autem vel eum iure reprehenderit qui in ea voluptate.</u></strong></p>
+        <div class="callout mt-2">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint.</div>
       </section>
 
       <section id="ground-transportation" class="content-section" data-animate>
         <h2>Ground Transportation</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Travel to/from the hotel is approximately 10 minutes (one-way). A taxi or rideshare from the airport to the hotel will cost approximately $25.00.</p>
-        <p class="mt-2"><strong>Rental cars are not allowed for this program.</strong> Please refer to the <a href="#">Lorem Ipsum Corporate Travel &amp; Expense Policy</a> for more information.</p>
-        <p class="mt-2"><strong>DRIVING TO SKO</strong><br>Please review pages 6-8 in the Corporate Travel &amp; Expense Policy above. Lorem ipsum dolor sit amet email <a href="#">travel@loremipsum.com</a> the following details: departure address, destination address, and dates of travel.</p>
+        <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+        <p class="mt-2"><strong>Nam libero tempore cum soluta nobis est.</strong> Eligendi optio cumque nihil impedit <a href="#">Quo Minus Id Quod Maxime</a> placeat facere possimus.</p>
+        <p class="mt-2"><strong>Lorem Ipsum Dolor Sit</strong><br>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis <a href="#">lorem@ipsum.com</a> praesentium voluptatum deleniti atque corrupti.</p>
       </section>
 
       <section id="expense-info" class="content-section" data-animate>
         <h2>Expense Information</h2>
-        <p>Lorem ipsum dolor sit amet expense guidelines apply to all attendees, including non-sales attendees.</p>
-        <p class="mt-2">Lorem ipsum dolor sit amet: <a href="#">Lorem Ipsum Travel &amp; Expense Policy</a>.</p>
-        <p class="mt-2"><strong>Reimbursable expenses include:</strong></p>
+        <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+        <p class="mt-2">Vel illum qui dolorem eum fugiat: <a href="#">Nemo Enim Ipsam Voluptatem</a>.</p>
+        <p class="mt-2"><strong>Lorem ipsum dolor sit amet:</strong></p>
         <ul>
-          <li>Airport transfers</li>
-          <li>Travel day meals</li>
-          <li>Tuesday night's dinner on own</li>
+          <li>Suspendisse potenti cras mollis nec</li>
+          <li>Praesent egestas tristique nibh sed</li>
+          <li>Fusce convallis metus id felis luctus</li>
         </ul>
       </section>
 
       <section id="meal-guidelines" class="content-section" data-animate>
         <h2>Meal Offerings and Guidelines</h2>
         <ul>
-          <li>Monday: Breakfast, lunch, snacks, and dinner</li>
-          <li>Tuesday: Breakfast, lunch, and snacks</li>
-          <li>Wednesday: Breakfast, lunch, snacks, and dinner</li>
+          <li>Curabitur ligula sapien tincidunt non euismod vitae</li>
+          <li>Phasellus volutpat metus eget egestas mollis lacinia</li>
+          <li>Vestibulum fringilla pede sit amet augue praesent</li>
         </ul>
-        <p class="mt-2"><strong>Beverages:</strong></p>
+        <p class="mt-2"><strong>Lorem Ipsum:</strong></p>
         <ul>
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. The only exception is Tuesday night's "free night" dinner.</li>
-          <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</li>
+          <li>Sed consequat auctor neque. Nulla facilisi cras non velit nec nisi vulputate nonummy.</li>
+          <li>Maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum.</li>
         </ul>
-        <p class="mt-2"><strong>Tuesday "Free Night" Dinner:</strong></p>
+        <p class="mt-2"><strong>Pellentesque Habitant Morbi:</strong></p>
         <ul>
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Dinner charges may not exceed $125 per person.</strong></li>
-          <li>Overages will not be reimbursed as team building.</li>
-          <li>An itemized receipt for meals exceeding $75 must be provided.</li>
+          <li>Tristique senectus et netus et malesuada fames ac turpis egestas. <strong>Proin pharetra nonummy pede mauris.</strong></li>
+          <li>Aenean nec lorem in tellus dignissim lacus viverra.</li>
+          <li>Quisque porta volutpat erat semper rutrum nulla purus.</li>
         </ul>
       </section>
 
       <section id="passport-visa" class="content-section" data-animate>
         <h2>Important Passport and Visa Information</h2>
-        <p>For information regarding business visas, please visit: <a href="#">https://lorem.ipsum.gov/travel</a></p>
-        <p class="mt-2">Visa processing times vary at consulates and may be long. Lorem ipsum dolor sit amet.</p>
-        <p class="mt-2"><strong>Business Invitation Letters</strong><br>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Answer 'Yes' to the question during the event registration process.</p>
+        <p>Phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id varius et dapibus ut: <a href="#">https://lorem.ipsum.dolor/amet</a></p>
+        <p class="mt-2">Nam pretium turpis et arcu. Duis arcu tortor suscipit eget imperdiet nec. Vivamus elementum semper nisi aenean vulputate eleifend tellus aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
+        <p class="mt-2"><strong>Lorem Ipsum Dolor</strong><br>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula porttitor eu consequat vitae.</p>
       </section>
 
     </div>
@@ -140,13 +268,13 @@
     <div class="footer-inner">
       <div class="footer-contact">
         <strong>SKO FY27 Registration Team</strong><br>
-        Email: <a href="#">sko@ntnxevents.com</a> &middot; Hours: Monday&ndash;Friday, 8:00 AM&ndash;5:00 PM PDT
+        Email: <a href="#">lorem@ipsum.com</a> &middot; Hours: Monday&ndash;Friday, 8:00 AM&ndash;5:00 PM PDT
       </div>
       <div>&copy; <span id="year"></span> Nutanix, Inc.</div>
     </div>
   </footer>
 
-  <script src="assets/main.js"></script>
+  <script src="assets/main.js?v=2"></script>
   <script src="../shared/site-switcher.js"></script>
 </body>
 </html>

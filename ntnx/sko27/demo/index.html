@@ -61,15 +61,6 @@
       background: var(--charcoal-light);
       border-radius: 12px;
       overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      text-decoration: none;
-      color: inherit;
-      display: block;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(120, 85, 250, 0.15);
     }
 
     .card-preview {
@@ -93,29 +84,79 @@
       left: 50%;
     }
 
-    .card-body {
-      padding: 16px 20px;
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--gray-400);
+    /* Link rows under the preview */
+    .card-links {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
+      flex-direction: column;
     }
 
-    .card-body svg {
-      width: 16px;
-      height: 16px;
-      opacity: 0.5;
+    .card-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 20px;
+      text-decoration: none;
+      color: var(--gray-400);
+      font-size: 0.85rem;
+      font-weight: 500;
+      transition: color 0.15s ease, background 0.15s ease;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .card-link:first-child {
+      border-top: none;
+    }
+
+    .card-link:hover {
+      color: var(--white);
+      background: rgba(120, 85, 250, 0.08);
+    }
+
+    .card-link .link-type {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--iris-light);
+      background: rgba(120, 85, 250, 0.1);
+      padding: 2px 8px;
+      border-radius: 4px;
+      flex-shrink: 0;
+      min-width: 52px;
+      text-align: center;
+    }
+
+    .card-link .link-label {
+      flex: 1;
+    }
+
+    .card-link svg {
+      width: 14px;
+      height: 14px;
+      opacity: 0.4;
+      flex-shrink: 0;
       transition: opacity 0.15s ease;
     }
 
-    .card:hover .card-body svg {
+    .card-link:hover svg {
       opacity: 1;
     }
 
-    .card:hover .card-body {
-      color: var(--white);
+    .dashboard-footer {
+      text-align: center;
+      margin-top: 80px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .dashboard-footer img {
+      height: 45px;
+      margin-bottom: 12px;
+    }
+
+    .dashboard-footer p {
+      font-size: 0.75rem;
+      color: var(--gray-600);
     }
 
     @media (max-width: 740px) {
@@ -132,55 +173,84 @@
     </div>
 
     <div class="cards">
-      <a class="card" href="01/index.html">
+
+      <!-- Design 01 -->
+      <div class="card">
         <div class="card-preview">
           <iframe src="01/index.html" loading="lazy" tabindex="-1"></iframe>
         </div>
-        <div class="card-body">
-          View Web Design 01
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        <div class="card-links">
+          <a class="card-link" href="01/index.html">
+            <span class="link-type">Website</span>
+            <span class="link-label">View Site</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="card-link" href="01/emails/savedate.html">
+            <span class="link-type">Email</span>
+            <span class="link-label">Save the Date</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="card-link" href="01/emails/regopen.html">
+            <span class="link-type">Email</span>
+            <span class="link-label">Registration Open</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
-      </a>
+      </div>
 
-      <a class="card" href="02/index.html">
+      <!-- Design 02 -->
+      <div class="card">
         <div class="card-preview">
           <iframe src="02/index.html" loading="lazy" tabindex="-1"></iframe>
         </div>
-        <div class="card-body">
-          View Web Design 02
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        <div class="card-links">
+          <a class="card-link" href="02/index.html">
+            <span class="link-type">Website</span>
+            <span class="link-label">View Site</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="card-link" href="02/emails/savedate.html">
+            <span class="link-type">Email</span>
+            <span class="link-label">Save the Date</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="card-link" href="02/emails/regopen.html">
+            <span class="link-type">Email</span>
+            <span class="link-label">Registration Open</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
-      </a>
+      </div>
 
-      <a class="card" href="03/index.html">
+      <!-- Design 03 -->
+      <div class="card">
         <div class="card-preview">
           <iframe src="03/index.html" loading="lazy" tabindex="-1"></iframe>
         </div>
-        <div class="card-body">
-          View Web Design 03
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+        <div class="card-links">
+          <a class="card-link" href="03/index.html">
+            <span class="link-type">Website</span>
+            <span class="link-label">View Site</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="card-link" href="03/emails/savedate.html">
+            <span class="link-type">Email</span>
+            <span class="link-label">Save the Date</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="card-link" href="03/emails/regopen.html">
+            <span class="link-type">Email</span>
+            <span class="link-label">Registration Open</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </a>
         </div>
-      </a>
+      </div>
 
-      <a class="card" href="04/index.html">
-        <div class="card-preview">
-          <iframe src="04/index.html" loading="lazy" tabindex="-1"></iframe>
-        </div>
-        <div class="card-body">
-          View Web Design 04
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-        </div>
-      </a>
+    </div>
 
-      <a class="card" href="05/index.html">
-        <div class="card-preview">
-          <iframe src="05/index.html" loading="lazy" tabindex="-1"></iframe>
-        </div>
-        <div class="card-body">
-          View Web Design 05
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-        </div>
-      </a>
+    <div class="dashboard-footer">
+      <img src="shared/logos/8echo-logo-horiz-wht.svg" alt="Eight Echo Agency">
+      <p>&copy; Eight Echo Agency LLC</p>
     </div>
   </div>
 

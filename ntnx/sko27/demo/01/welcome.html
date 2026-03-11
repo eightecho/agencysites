@@ -1,138 +1,1008 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en" translate="no">
-<head>
-  <meta charset="UTF-8">
-  <meta name="google" content="notranslate">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome — SKO FY27</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/styles.css">
-</head>
-<body>
+	<head>
+		<title>Nutanix SKO FY27</title>
+		<meta charset="utf-8" />
+		<meta name="google" content="notranslate">
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+			/* ===== Global overrides ===== */
+			* {
+				text-transform: none !important;
+				font-family: 'Montserrat', sans-serif !important;
+			}
+			body, input, select, textarea {
+				font-size: 15px !important;
+			}
+			/* ===== Hide the top header bar (logo + red line) ===== */
+			#header {
+				display: none !important;
+			}
 
-  <!-- Mobile Nav Toggle -->
-  <button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
-  </button>
-  <div class="sidebar-overlay"></div>
+			/* ===== Hide hamburger toggle & keep sidebar always open ===== */
+			#sidebar .toggle {
+				display: none !important;
+			}
+			#sidebar.inactive {
+				margin-left: 0 !important;
+				box-shadow: 0 0 5em 0 rgba(0, 0, 0, 0.175) !important;
+			}
+			#sidebar {
+				position: sticky !important;
+				top: 0;
+				height: 100vh;
+				align-self: flex-start;
+			}
+			#sidebar > .inner {
+				position: static !important;
+				top: auto !important;
+				overflow-y: auto !important;
+				height: 100%;
+			}
 
-  <div class="app-layout">
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <div class="sidebar-logo"><a href="index.html"><img src="../shared/logos/Nutanix-Logo-White-Digital.svg" alt="Nutanix" height="22"></a></div>
-      <nav class="sidebar-nav">
-        <a href="welcome.html">
-          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 12l9-9 9 9M5 10v10a1 1 0 001 1h3m10-11v10a1 1 0 01-1 1h-3m-6 0a1 1 0 01-1-1v-4a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1"/></svg>
-          Welcome
-        </a>
-        <a href="general-info.html">
-          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4m0-4h.01"/></svg>
-          General Info
-        </a>
-        <a href="travel.html">
-          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z"/></svg>
-          Travel & Expenses
-        </a>
-        <a href="hotel.html">
-          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 21h18M3 7v14m18-14v14M6 11h4m-4 4h4m4-4h4m-4 4h4M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3"/></svg>
-          Hotel
-        </a>
-        <a href="agenda.html">
-          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
-          Agenda
-        </a>
-        <a href="faq.html">
-          <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M9 9a3 3 0 115.12 2.12c-.58.59-1.12 1.17-1.12 2.38m0 3h.01"/></svg>
-          FAQ
-        </a>
-      </nav>
-      <div class="sidebar-footer">
-        <a href="#" class="btn btn-outline">My Profile</a>
-        <a href="index.html" class="btn btn-ghost">Logout</a>
-      </div>
-    </aside>
+			/* ===== Hero banner — true full-bleed ===== */
+			#main > .inner {
+				padding: 0 5em !important;
+				max-width: 960px !important;
+				margin: 0 !important;
+			}
+			.hero-banner {
+				/* Fill entire #main width: viewport minus sidebar (26em at 0.9em = 23.4em) */
+				width: calc(100vw - 23.4em);
+				position: relative;
+				left: 0;
+				margin-left: -5em;
+				margin-right: 0;
+				margin-top: 0;
+				margin-bottom: 1.5em;
+				height: 480px;
+				overflow: hidden;
+				background: linear-gradient(135deg, #0d0221 0%, #1a0a3e 25%, #2d1b69 50%, #462a8a 75%, #1a0a3e 100%);
+				background-size: 400% 400%;
+				animation: heroGradient 12s ease infinite;
+			}
 
-    <!-- Main Content -->
-    <main class="main">
-      <div class="page-header" data-animate>
-        <h1>Welcome to SKO FY27</h1>
-      </div>
+			@keyframes heroGradient {
+				0% { background-position: 0% 50%; }
+				50% { background-position: 100% 50%; }
+				100% { background-position: 0% 50%; }
+			}
 
-      <div class="card-flat mb-3" data-animate>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
-        <p class="mt-2">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident:</p>
-        <ul class="mt-2">
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</li>
-          <li>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</li>
-          <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</li>
-        </ul>
-        <p class="mt-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor!</p>
-      </div>
+			/* Animated light streaks */
+			.hero-streaks {
+				position: absolute;
+				top: 0; left: 0; right: 0; bottom: 0;
+				overflow: hidden;
+			}
+			.hero-streaks .streak {
+				position: absolute;
+				height: 1px;
+				background: linear-gradient(90deg, transparent, rgba(120, 85, 250, 0.6), rgba(255,255,255,0.3), transparent);
+				animation: streakMove linear infinite;
+				opacity: 0;
+			}
+			.hero-streaks .streak:nth-child(1) {
+				top: 20%; width: 60%; animation-duration: 4s; animation-delay: 0s;
+			}
+			.hero-streaks .streak:nth-child(2) {
+				top: 35%; width: 45%; height: 2px; animation-duration: 3.5s; animation-delay: 1s;
+			}
+			.hero-streaks .streak:nth-child(3) {
+				top: 55%; width: 70%; animation-duration: 5s; animation-delay: 0.5s;
+			}
+			.hero-streaks .streak:nth-child(4) {
+				top: 70%; width: 40%; animation-duration: 3s; animation-delay: 2s;
+			}
+			.hero-streaks .streak:nth-child(5) {
+				top: 45%; width: 55%; height: 2px; animation-duration: 4.5s; animation-delay: 1.5s;
+			}
+			.hero-streaks .streak:nth-child(6) {
+				top: 80%; width: 35%; animation-duration: 3.8s; animation-delay: 0.8s;
+			}
+			.hero-streaks .streak:nth-child(7) {
+				top: 15%; width: 50%; animation-duration: 4.2s; animation-delay: 2.5s;
+			}
+			.hero-streaks .streak:nth-child(8) {
+				top: 60%; width: 65%; height: 2px; animation-duration: 5.5s; animation-delay: 0.3s;
+			}
 
-      <!-- Feature Highlights -->
-      <div class="feature-grid" data-animate>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <h3>Lorem Ipsum</h3>
-          <p>Dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2m8-10a4 4 0 100-8 4 4 0 000 8zm11 11v-2a4 4 0 00-3-3.87m-1-9.13a4 4 0 010 7.75"/></svg>
-          </div>
-          <h3>Consectetur Elit</h3>
-          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 11-5.93-9.14m5.93.14L12 13l-3-3"/></svg>
-          </div>
-          <h3>Adipiscing Tempor</h3>
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-      </div>
+			@keyframes streakMove {
+				0% { left: -20%; opacity: 0; }
+				10% { opacity: 0.8; }
+				90% { opacity: 0.8; }
+				100% { left: 120%; opacity: 0; }
+			}
 
-      <!-- Countdown -->
-      <div class="text-center mt-4" data-animate>
-        <h2 class="mb-3">Countdown</h2>
-        <div class="countdown">
-          <div class="countdown-unit">
-            <span class="countdown-value" id="cd-days">--</span>
-            <span class="countdown-label">Days</span>
-          </div>
-          <div class="countdown-unit">
-            <span class="countdown-value" id="cd-hours">--</span>
-            <span class="countdown-label">Hours</span>
-          </div>
-          <div class="countdown-unit">
-            <span class="countdown-value" id="cd-minutes">--</span>
-            <span class="countdown-label">Minutes</span>
-          </div>
-          <div class="countdown-unit">
-            <span class="countdown-value" id="cd-seconds">--</span>
-            <span class="countdown-label">Seconds</span>
-          </div>
-        </div>
-      </div>
+			/* Animated diagonal streaks — same style as horizontals, rotated */
+			.hero-diagonals {
+				position: absolute;
+				top: 0; left: 0; right: 0; bottom: 0;
+				overflow: hidden;
+			}
+			.hero-diagonals .diagonal {
+				position: absolute;
+				height: 1px;
+				background: linear-gradient(90deg, transparent, rgba(120, 85, 250, 0.6), rgba(255,255,255,0.3), transparent);
+				animation: diagonalMove linear infinite;
+				opacity: 0;
+			}
+			.hero-diagonals .diagonal:nth-child(1) {
+				width: 50%; animation-duration: 9s; animation-delay: 0.6s;
+			}
+			.hero-diagonals .diagonal:nth-child(2) {
+				width: 40%; height: 2px; animation-duration: 8s; animation-delay: 2.5s;
+			}
+			.hero-diagonals .diagonal:nth-child(3) {
+				width: 60%; animation-duration: 10s; animation-delay: 1.2s;
+			}
+			.hero-diagonals .diagonal:nth-child(4) {
+				width: 35%; animation-duration: 7.5s; animation-delay: 4s;
+			}
+			.hero-diagonals .diagonal:nth-child(5) {
+				width: 45%; height: 2px; animation-duration: 9.5s; animation-delay: 2s;
+			}
+			.hero-diagonals .diagonal:nth-child(6) {
+				width: 30%; animation-duration: 8.5s; animation-delay: 0.3s;
+			}
+			@keyframes diagonalMove {
+				0% {
+					left: 18%;
+					top: -10%;
+					transform: rotate(-30deg);
+					opacity: 0;
+				}
+				8% { opacity: 0.8; }
+				88% { opacity: 0.8; }
+				100% {
+					left: 95%;
+					top: 90%;
+					transform: rotate(-30deg);
+					opacity: 0;
+				}
+			}
 
-      <!-- Footer -->
-      <footer class="site-footer">
-        <div class="footer-inner">
-          <div class="footer-contact">
-            <strong>SKO FY27 Registration Team</strong><br>
-            Email: <a href="#">sko@ntnxevents.com</a> &middot; Hours: Monday–Friday, 8:00 AM–5:00 PM PDT
-          </div>
-          <div>&copy; <span id="year"></span> Nutanix, Inc.</div>
-        </div>
-      </footer>
-    </main>
-  </div>
+			/* Glowing orb */
+			.hero-glow {
+				position: absolute;
+				top: 50%;
+				left: 35%;
+				transform: translate(-50%, -50%);
+				width: 500px;
+				height: 500px;
+				background: radial-gradient(circle, rgba(120, 85, 250, 0.25) 0%, rgba(120, 85, 250, 0.08) 40%, transparent 70%);
+				animation: glowPulse 6s ease-in-out infinite;
+			}
+			@keyframes glowPulse {
+				0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+				50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+			}
 
-  <script src="assets/main.js"></script>
-  <script src="../shared/site-switcher.js"></script>
-</body>
+			/* Text overlay */
+			.hero-banner .hero-overlay {
+				position: absolute;
+				top: 0; left: 0; right: 0; bottom: 0;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: flex-start;
+				text-align: left;
+				padding-left: 120px; /* CSS fallback, JS will align precisely */
+				color: #fff;
+				z-index: 10;
+			}
+			.hero-banner .hero-overlay h1 {
+				color: #fff;
+				margin: 0 0 0.25em 0;
+				font-size: 3.6em;
+				font-weight: 800;
+				letter-spacing: 0.02em;
+				line-height: 1.05;
+				text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+			}
+			.hero-banner .hero-overlay p {
+				color: rgba(255,255,255,0.95);
+				margin: 0;
+				font-size: 1.8em;
+				font-weight: 600;
+				letter-spacing: 0.02em;
+				line-height: 1.4;
+				text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+			}
+
+			/* ===== Text sections ===== */
+			.text-section {
+				margin: 0 0 1.5em 0;
+			}
+			#main > .inner > section {
+				padding: 1.5em 0 !important;
+				border-top: none !important;
+			}
+			.text-section h2 {
+				font-size: 1.6em;
+				font-weight: 700;
+				letter-spacing: 0.01em;
+				border-bottom: none;
+				padding-bottom: 0;
+				margin-bottom: 1em;
+				display: inline-block;
+			}
+			.text-section h2::after {
+				content: '';
+				display: block;
+				width: 100%;
+				height: 10px;
+				background: #7855FA;
+				margin-top: 0.4em;
+			}
+			.text-section h3 {
+				font-size: 1.15em;
+				font-weight: 600;
+				margin: 1.5em 0 0.5em 0;
+			}
+			.text-section p {
+				line-height: 1.8;
+			}
+			.text-section ul {
+				line-height: 1.8;
+				margin: 0.5em 0 1em 1.5em;
+			}
+			.text-section ul li {
+				margin-bottom: 0.3em;
+			}
+
+			/* Callout box */
+			.callout {
+				background: #f4f1fe;
+				border-left: 4px solid #7855FA;
+				padding: 1.25em 1.5em;
+				margin: 1.5em 0;
+				border-radius: 0 6px 6px 0;
+			}
+			.callout p {
+				margin: 0;
+			}
+			.callout strong {
+				color: #4B00AA;
+			}
+
+			/* ===== Kill ALL hr and divider lines ===== */
+			hr {
+				display: none !important;
+			}
+			#menu > ul > li,
+			#sidebar .inner .contact li,
+			#sidebar .inner section,
+			#sidebar .inner nav,
+			#sidebar .inner > *,
+			#sidebar .inner .sidebar-profile,
+			.text-section + .text-section {
+				border-top: none !important;
+				border-bottom: none !important;
+			}
+			/* Purple underline on sidebar section titles — 10px thick */
+			header.major > :last-child {
+				border-bottom: solid 10px #7855FA !important;
+				display: inline-block;
+				padding: 0 0 0.5em 0 !important;
+			}
+
+			/* ===== Sidebar contact icon color & spacing ===== */
+			ul.contact li:before {
+				color: #cdcdcd !important;
+				top: 0 !important;
+			}
+			ul.contact li {
+				margin: 0 0 0.6em 0 !important;
+				padding: 0 0 0.6em 3em !important;
+			}
+
+			/* ===== Sidebar menu text size ===== */
+			#menu ul a, #menu ul span {
+				font-size: 1.05em !important;
+				padding: 0.5em 0 !important;
+			}
+			/* Thin light-gray dividers under menu items */
+			#menu > ul > li {
+				border-bottom: 1px solid rgba(255,255,255,0.1) !important;
+			}
+			#menu > ul > li:last-child {
+				border-bottom: none !important;
+			}
+
+			/* ===== Active state for sidebar menu ===== */
+			#menu ul a.is-active {
+				color: #7855FA !important;
+				border-left: none;
+				padding-left: 1.4em !important;
+				font-weight: 600;
+				position: relative;
+			}
+			#menu ul a.is-active::before {
+				content: '';
+				position: absolute;
+				left: 0;
+				top: -0.3em;
+				bottom: -0.3em;
+				width: 14px;
+				background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 50' preserveAspectRatio='none'%3E%3Cpath d='M3 0 L3 17 L11 25 L3 33 L3 50' fill='none' stroke='%237855FA' stroke-width='3' stroke-linejoin='miter' stroke-linecap='square'/%3E%3C/svg%3E");
+				background-size: 100% 100%;
+				background-repeat: no-repeat;
+			}
+
+			/* ===== Hover colors ===== */
+			a:hover,
+			#menu ul a:hover,
+			#sidebar .inner a:hover {
+				color: #6040e0 !important;
+			}
+
+			/* ===== Sidebar logo ===== */
+			.sidebar-logo {
+				padding: 20px 0 0 0 !important;
+				margin: 0 0 20px 0 !important;
+				text-align: center;
+			}
+			.sidebar-logo a {
+				border-bottom: none !important;
+				text-decoration: none !important;
+			}
+			.sidebar-logo img {
+				width: 70%;
+				max-width: 180px;
+				height: auto;
+			}
+
+			/* ===== Sidebar profile & logout buttons ===== */
+			.sidebar-profile {
+				padding: 20px 0 0 0 !important;
+				margin: 0 0 5em 0 !important;
+			}
+			.sidebar-profile .btn-profile {
+				display: block;
+				width: 100%;
+				padding: 0.75em 1em;
+				background: #7855FA;
+				color: #fff;
+				border: none;
+				border-radius: 6px;
+				font-size: 0.85em;
+				font-weight: 600;
+				text-align: center;
+				text-decoration: none;
+				cursor: pointer;
+				transition: all 0.15s ease;
+			}
+			#sidebar .inner .sidebar-profile .btn-profile:hover {
+				background: #6040e0;
+				color: #fff !important;
+			}
+			.sidebar-profile .btn-logout {
+				display: block;
+				width: 100%;
+				padding: 0.6em 1em;
+				margin-top: 0.5em;
+				background: transparent;
+				color: #9fa3a6;
+				border: 1px solid rgba(255,255,255,0.15);
+				border-radius: 6px;
+				font-size: 0.8em;
+				font-weight: 500;
+				text-align: center;
+				text-decoration: none;
+				cursor: pointer;
+				transition: all 0.15s ease;
+			}
+			#sidebar .inner .sidebar-profile .btn-logout:hover {
+				color: #fff !important;
+				border-color: rgba(255,255,255,0.3);
+			}
+
+			/* ===== FAQ Collapsible ===== */
+			.faq-list {
+				margin: 1em 0;
+			}
+			.faq-item {
+				border-bottom: none;
+			}
+			.faq-item:first-child .faq-question {
+				border-top: 1px solid #e0e0e0 !important;
+			}
+			.faq-question {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				width: 100%;
+				padding: 1.2em 0 !important;
+				background: none !important;
+				border: none !important;
+				border-bottom: 1px solid #e0e0e0 !important;
+				outline: none !important;
+				box-shadow: none !important;
+				cursor: pointer;
+				font-family: 'Montserrat', sans-serif !important;
+				font-size: 1.1em !important;
+				font-weight: 600 !important;
+				color: #1F1F20 !important;
+				text-align: left;
+				transition: color 0.2s ease;
+				-webkit-appearance: none;
+				appearance: none;
+			}
+			.faq-question:hover {
+				color: #7855FA !important;
+			}
+			.faq-question:focus {
+				outline: none !important;
+				box-shadow: none !important;
+			}
+			.faq-icon {
+				font-size: 1.5em;
+				font-weight: 300;
+				color: #7855FA;
+				transition: transform 0.3s ease;
+				flex-shrink: 0;
+				margin-left: 1em;
+			}
+			.faq-item.open .faq-icon {
+				transform: rotate(45deg);
+			}
+			.faq-answer {
+				max-height: 0;
+				overflow: hidden;
+				transition: max-height 0.35s ease, padding 0.35s ease;
+				padding: 0 0 0 0;
+			}
+			.faq-item.open .faq-answer {
+				max-height: 500px;
+				padding: 0 0 1.2em 0;
+			}
+			.faq-answer p {
+				margin: 0;
+				color: #555;
+				line-height: 1.8;
+			}
+		</style>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header (hidden via CSS) -->
+								<header id="header">
+									<a href="welcome.html" class="logo"><img src="../shared/logos/Nutnaix-skofy27-blk.svg" alt="Nutanix SKO FY27" style="height:32px;vertical-align:middle;"></a>
+								</header>
+
+							<!-- Hero Banner (Animated) -->
+								<div class="hero-banner">
+									<!-- Animated light streaks -->
+									<div class="hero-streaks">
+										<div class="streak"></div>
+										<div class="streak"></div>
+										<div class="streak"></div>
+										<div class="streak"></div>
+										<div class="streak"></div>
+										<div class="streak"></div>
+										<div class="streak"></div>
+										<div class="streak"></div>
+									</div>
+
+									<!-- Glowing orb -->
+									<div class="hero-glow"></div>
+
+									<!-- Animated diagonal streaks -->
+									<div class="hero-diagonals">
+										<div class="diagonal"></div>
+										<div class="diagonal"></div>
+										<div class="diagonal"></div>
+										<div class="diagonal"></div>
+										<div class="diagonal"></div>
+										<div class="diagonal"></div>
+									</div>
+
+									<!-- Text overlay -->
+									<div class="hero-overlay">
+										<h1>SKO FY27</h1>
+										<p>Welcome to<br>Nutanix Sales Kickoff<br>FY27</p>
+									</div>
+								</div>
+
+							<!-- Overview -->
+								<section id="overview" class="text-section">
+									<h2>Overview</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vehicula dolor arcu, sit amet blandit dolor mollis nec. Donec viverra eleifend lacus, vitae ullamcorper metus. Sed sollicitudin ipsum quis nunc sollicitudin ultrices. Donec euismod scelerisque ligula. Maecenas eu varius risus, eu aliquet arcu. Curabitur fermentum suscipit est, tincidunt mattis ipsum.</p>
+									<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci. Aenean nec lorem, sit amet dignissim lacus.</p>
+
+									<h3>Event Overview</h3>
+									<p>Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero.</p>
+
+									<div class="callout">
+										<p><strong>Lorem ipsum:</strong> Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Praesent blandit laoreet nibh. Fusce convallis metus id felis luctus adipiscing.</p>
+									</div>
+
+									<h3>What to Expect</h3>
+									<p>Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero.</p>
+									<ul>
+										<li>Suspendisse potenti cras mollis nec condimentum vitae</li>
+										<li>Pellentesque auctor neque nec urna praesent blandit</li>
+										<li>Vestibulum volutpat pretium libero cras id dui</li>
+										<li>Aenean ut eros et nisl sagittis vestibulum nullam</li>
+										<li>Donec vitae sapien ut libero venenatis faucibus</li>
+									</ul>
+								</section>
+
+							<!-- General Info -->
+								<section id="general-info" class="text-section">
+									<h2>General Info</h2>
+
+									<h3>Attendees</h3>
+									<p>Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo sed fringilla mauris sit amet nibh donec sodales sagittis magna. Sed consequat tellus et tortor vehicula dignissim vel a sapien.</p>
+									<p>Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum aenean imperdiet etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi nam eget dui etiam rhoncus maecenas tempus.</p>
+
+									<h3>Conference Attire</h3>
+									<p>Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum aenean imperdiet. Etiam ultricies nisi vel augue curabitur ullamcorper. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae sed mollis eros et ultrices tempus.</p>
+									<p>Mauris ipsum aliquam libero nec aenean vulputate eleifend tellus. Aenean leo ligula porttitor eu consequat vitae eleifend ac enim aliquam lorem ante dapibus in viverra quis feugiat a tellus.</p>
+
+									<h3>Weather</h3>
+									<p>Sed consequat auctor neque. Nulla facilisi. Cras non velit nec nisi vulputate nonummy maecenas tincidunt lacus. Praesent egestas tristique nibh sed mollis eros et ultrices tempus mauris ipsum aliquam libero.</p>
+									<p>Nec aenean vulputate eleifend tellus aenean leo ligula porttitor eu consequat vitae eleifend ac enim. Aliquam lorem ante dapibus in viverra quis feugiat a tellus phasellus viverra nulla ut metus varius laoreet.</p>
+
+									<h3>General Session</h3>
+									<p>Praesent vestibulum dapibus nibh. Etiam iaculis nunc ac metus. Ut id nisl quis enim dignissim sagittis. Donec pede justo fringilla vel aliquet nec vulputate eget arcu in enim justo rhoncus ut imperdiet a venenatis vitae justo.</p>
+									<p>Nullam dictum felis eu pede mollis pretium integer tincidunt. Cras dapibus vivamus elementum semper nisi aenean vulputate eleifend tellus. Aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
+
+									<h3>Evening Events</h3>
+									<p>Curabitur at lacus ac velit ornare lobortis. Curabitur a felis tristique condimentum.</p>
+									<p><strong>Lorem ipsum dolor sit amet</strong><br>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Fusce id purus ut enim blandit venenatis.</p>
+									<p><strong>Sed ut perspiciatis unde</strong><br>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit. <strong>Temporibus autem quibusdam et aut</strong>.</p>
+									<p><strong>Nulla facilisi morbi tempus</strong><br>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede.</p>
+
+									<h3>Name Badges</h3>
+									<p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis. Feugiat a tellus phasellus viverra nulla ut metus varius laoreet quisque rutrum.</p>
+									<p>Etiam ultricies nisi vel augue curabitur ullamcorper ultricies nisi. Nam eget dui etiam rhoncus maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet.</p>
+
+									<h3>On-Site Assistance</h3>
+									<p>Nam pretium turpis et arcu. Duis arcu tortor, suscipit eget, imperdiet nec. Vivamus elementum semper nisi aenean vulputate eleifend tellus aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
+									<p>Aliquam lorem ante dapibus in viverra quis feugiat a tellus. Phasellus viverra nulla ut metus varius laoreet quisque rutrum aenean imperdiet etiam ultricies nisi vel augue.</p>
+									<div class="callout">
+										<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent egestas tristique nibh. Sed mollis, eros et ultrices tempus, mauris ipsum aliquam libero.</p>
+									</div>
+
+									<h3>Meals On-Site</h3>
+									<p>Fusce neque, vestibulum ante ipsum primis:</p>
+									<ul>
+										<li>Curabitur ligula sapien tincidunt non euismod vitae</li>
+										<li>Phasellus volutpat metus eget egestas mollis lacinia</li>
+										<li>Vestibulum fringilla pede sit amet augue praesent</li>
+									</ul>
+									<p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt cras dapibus.</p>
+
+									<h3>Expense Policy</h3>
+									<p>Praesent nonummy mi in odio. Nunc interdum lacus sit amet orci. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae sed mollis eros et ultrices tempus mauris ipsum aliquam libero: <a href="#">Lorem Ipsum Dolor Amet</a>.</p>
+									<p>Donec vitae sapien ut libero venenatis faucibus nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt duis leo sed fringilla mauris sit amet nibh donec sodales sagittis magna.</p>
+
+									<h3>Guests / Children</h3>
+									<p>In hac habitasse platea dictumst. Morbi vestibulum volutpat enim. Nullam malesuada erat ut turpis suspendisse urna nibh. Vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque.</p>
+									<p>Quam pharetra magna ac consequat malesuada arcu nunc blandit nunc vehicula quam ut placerat orci lacus vestibulum vel elit non enim eget ante dictum cursus sed auctor.</p>
+								</section>
+
+							<!-- Travel & Expenses -->
+								<section id="travel-expenses" class="text-section">
+									<h2>Travel &amp; Expenses</h2>
+
+									<h3>Flights</h3>
+									<p><strong>Suspendisse potenti nullam porttitor lacus at turpis donec posuere.</strong> Aenean massa cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+									<p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis sem. Nulla consequat massa quis enim. <a href="#">Lorem Ipsum Dolor</a> sit amet consectetur.</p>
+									<p>In enim justo, rhoncus ut imperdiet: <a href="#">Vestibulum Ante Ipsum Primis</a>.</p>
+
+									<h3>Travel</h3>
+									<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque. <strong><u>Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</u></strong> Ut enim ad minima veniam quis nostrum exercitationem. <strong><u>Quis autem vel eum iure reprehenderit qui in ea voluptate.</u></strong></p>
+									<div class="callout">
+										<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint.</p>
+									</div>
+
+									<h3>Ground Transportation</h3>
+									<p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+									<p><strong>Nam libero tempore cum soluta nobis est.</strong> Eligendi optio cumque nihil impedit <a href="#">Quo Minus Id Quod Maxime</a> placeat facere possimus.</p>
+									<p><strong>Lorem ipsum dolor sit</strong><br>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis <a href="#">lorem@ipsum.com</a> praesentium voluptatum deleniti atque corrupti.</p>
+
+									<h3>Expense Information</h3>
+									<p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+									<p>Vel illum qui dolorem eum fugiat: <a href="#">Nemo Enim Ipsam Voluptatem</a>.</p>
+									<p><strong>Lorem ipsum dolor sit amet:</strong></p>
+									<ul>
+										<li>Suspendisse potenti cras mollis nec</li>
+										<li>Praesent egestas tristique nibh sed</li>
+										<li>Fusce convallis metus id felis luctus</li>
+									</ul>
+
+									<h3>Meal Offerings and Guidelines</h3>
+									<ul>
+										<li>Curabitur ligula sapien tincidunt non euismod</li>
+										<li>Phasellus volutpat metus eget egestas mollis</li>
+										<li>Vestibulum fringilla pede sit amet augue</li>
+									</ul>
+									<p><strong>Lorem ipsum:</strong></p>
+									<ul>
+										<li>Sed consequat auctor neque. Nulla facilisi cras non velit nec nisi vulputate nonummy.</li>
+										<li>Maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum.</li>
+									</ul>
+									<p><strong>Pellentesque habitant morbi:</strong></p>
+									<ul>
+										<li>Tristique senectus et netus et malesuada fames ac turpis egestas. <strong>Proin pharetra nonummy pede mauris.</strong></li>
+										<li>Aenean nec lorem in tellus dignissim lacus viverra.</li>
+										<li>Quisque porta volutpat erat semper rutrum nulla purus.</li>
+									</ul>
+
+									<h3>Important Passport and Visa Information</h3>
+									<p>Phasellus in felis donec semper sapien: <a href="#">https://lorem.ipsum.dolor/amet</a></p>
+									<p>Nam pretium turpis et arcu. Duis arcu tortor suscipit eget imperdiet nec.</p>
+									<p><strong>Lorem Ipsum Dolor</strong><br>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula porttitor eu consequat vitae.</p>
+								</section>
+
+							<!-- Hotel -->
+								<section id="hotel" class="text-section">
+									<h2>Hotel</h2>
+
+									<h3>Location</h3>
+									<p><strong>Lorem Ipsum Dolor Sit</strong><br>Vivamus elementum semper nisi<br>Aenean vulputate eleifend tellus<br>Lorem: (000) 000-0000<br><a href="#">Lorem Ipsum</a> &middot; <a href="#">Dolor Sit Amet</a></p>
+
+									<h3>Hotel Room Block</h3>
+									<p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut mollis sed, nonummy id metus. Nullam accumsan lorem in dui. <strong>Cras ultricies ligula sed magna dictum porta.</strong></p>
+									<p>Praesent egestas tristique nibh sed mollis eros et ultrices tempus. Mauris ipsum aliquam libero nec aenean vulputate eleifend tellus aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
+
+									<h3>Arrival Policy</h3>
+									<p>Praesent blandit laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas neque sit amet convallis pulvinar justo nulla aliquet porttitor.</p>
+									<p>Donec quam felis ultricies nec pellentesque eu pretium quis sem. Nulla consequat massa quis enim donec pede justo fringilla vel aliquet nec vulputate eget arcu.</p>
+
+									<h3>Extensions</h3>
+									<p>Maecenas ullamcorper dui et placerat feugiat eros tortor convallis at <a href="#">lorem@ipsum.com</a>. Integer tincidunt cras dapibus vivamus elementum semper nisi.</p>
+									<div class="callout">
+										<p><strong>Lorem ipsum:</strong> Sed augue ipsum egestas nec vestibulum et molestie sit amet feugiat in lacus dapibus condimentum.</p>
+									</div>
+
+									<h3>Internet Access</h3>
+									<p>Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non nunc. Vestibulum fringilla pede sit amet augue. In turpis pellentesque egestas neque sit amet convallis.</p>
+									<p>Pulvinar justo nulla aliquet porttitor phasellus viverra nulla ut metus varius laoreet. Quisque rutrum aenean imperdiet etiam ultricies nisi vel augue curabitur ullamcorper.</p>
+
+									<h3>Smoking Policy</h3>
+									<p>In turpis pellentesque egestas neque sit amet convallis pulvinar. Cras dapibus vivamus elementum semper nisi aenean vulputate eleifend tellus. Nullam dictum felis eu pede mollis pretium integer tincidunt.</p>
+									<p>Fusce vulputate eleifend sapien vestibulum purus quam scelerisque ut mollis sed nonummy id metus. Nullam accumsan lorem in dui cras ultricies ligula sed magna dictum porta.</p>
+
+									<h3>Gratuity Guidelines</h3>
+									<p>Donec pede justo fringilla vel aliquet nec vulputate eget arcu. In enim justo rhoncus ut imperdiet a venenatis vitae justo. Nullam dictum felis eu pede mollis pretium: <a href="#">In Enim Justo Rhoncus</a>.</p>
+									<p>Integer tincidunt cras dapibus vivamus elementum semper nisi. Aenean vulputate eleifend tellus aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
+
+									<h3>Hotel Charges</h3>
+									<p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt cras dapibus. Vivamus elementum semper nisi aenean vulputate eleifend tellus. Aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
+
+									<h3>Cancellation Policy</h3>
+									<p>Aliquam lorem ante dapibus in viverra quis feugiat <a href="#">lorem@ipsum.com</a>. Phasellus viverra nulla ut metus varius laoreet <strong>quisque rutrum</strong> aenean imperdiet etiam ultricies nisi vel augue.</p>
+
+									<h3>Hotel Accessibility</h3>
+									<p>Curabitur ullamcorper ultricies nisi nam eget dui. Etiam rhoncus maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet adipiscing sem neque sed ipsum: <a href="#">lorem@ipsum.com</a>.</p>
+									<p>Nam quam nunc blandit vel luctus pulvinar hendrerit id lorem. Maecenas nec odio et ante tincidunt tempus donec vitae sapien ut libero venenatis faucibus.</p>
+								</section>
+
+							<!-- Agenda -->
+								<section id="agenda" class="text-section">
+									<h2>Agenda</h2>
+									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent egestas tristique nibh.</p>
+
+									<h3>Sunday</h3>
+									<p><strong>Lorem ipsum</strong> | Registration (Lorem Ipsum)<br>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.</p>
+
+									<h3>Monday</h3>
+									<p><strong>Lorem ipsum</strong> | Registration (Lorem Ipsum)</p>
+									<p><strong>Dolor sit amet</strong> | Breakfast (Lorem Ipsum)</p>
+									<p><strong>Consectetur adipiscing</strong> | Opening Keynote (Lorem Ipsum)<br>Fusce vulputate eleifend sapien. Vestibulum purus quam scelerisque ut mollis sed nonummy id metus.</p>
+									<p><strong>Elit sed do</strong> | Morning Break</p>
+									<p><strong>Eiusmod tempor</strong> | Lorem Ipsum Platform Keynote (Lorem Ipsum)<br>Nullam accumsan lorem in dui. Cras ultricies ligula sed magna dictum porta proin eget tortor risus.</p>
+									<p><strong>Incididunt ut</strong> | Lunch</p>
+									<p><strong>Labore et dolore</strong> | Lorem vs Ipsum: Dissecting Architectures (Lorem Ipsum)<br>Maecenas nec odio et ante tincidunt tempus donec vitae sapien ut libero venenatis faucibus.</p>
+									<p><strong>Magna aliqua</strong> | Drive FY27 Success with Programs (Lorem Ipsum)</p>
+									<p><strong>Ut enim ad</strong> | Product Positioning and Art of the Deal (Lorem Ipsum)</p>
+									<p><strong>Minim veniam</strong> | Be A Better SE With AI (Lorem Ipsum)</p>
+
+									<h3>Tuesday</h3>
+									<p><strong>Lorem ipsum</strong> | Breakfast</p>
+									<p><strong>Dolor sit amet</strong> | General Session (Lorem Ipsum)</p>
+									<p><strong>Consectetur adipiscing</strong> | Building Strategic Success With an Account Plan (Lorem Ipsum)</p>
+									<p><strong>Elit sed do</strong> | Maturing Executive Engagement (Lorem Ipsum)</p>
+									<p><strong>Eiusmod</strong> | Lorem Ipsum &mdash; Dolor Sit Amet &mdash; Consectetur adipiscing elit sed do eiusmod.</p>
+
+									<h3>Wednesday</h3>
+									<p><strong>Lorem ipsum</strong> | Breakfast</p>
+									<p><strong>Dolor sit amet</strong> | Closing Keynote (Lorem Ipsum)<br>Phasellus consectetuer vestibulum elit. Aenean tellus metus bibendum sed posuere ac.</p>
+									<p><strong>Consectetur adipiscing</strong> | Regional Breakout Sessions</p>
+									<p><strong>Elit sed do</strong> | Lunch</p>
+									<p><strong>Eiusmod tempor</strong> | Afternoon Workshops</p>
+									<p><strong>Incididunt</strong> | Global Awards Dinner (Lorem Ipsum)<br>Vestibulum fringilla pede sit amet augue. In turpis pellentesque egestas neque sit amet convallis.</p>
+								</section>
+
+							<!-- FAQ -->
+								<section id="faq" class="text-section">
+									<h2>FAQ</h2>
+
+									<div class="faq-list">
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>When and where will SKO FY27 take place?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Fusce vehicula dolor arcu, sit amet blandit dolor mollis nec. Donec viverra eleifend lacus, vitae ullamcorper metus. Sed sollicitudin ipsum quis nunc sollicitudin ultrices.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>Arrival Policy</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Curabitur fermentum suscipit est, tincidunt mattis ipsum type pellentesque. Maecenas eu varius risus, eu aliquet arcu. Donec euismod scelerisque ligula.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>Who should attend SKO FY27?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>What exactly do I need to get done to be eligible to attend?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum nulla. Nunc purus phasellus in felis.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>Do I have to attend the entire event?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Donec semper sapien a libero. Nam dui proin leo odio porttitor id varius et dapibus. Etiam ultricies nisi vel augue curabitur.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>How do I book travel?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>When do I need to book travel by?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Mauris et orci. Aenean nec lorem. In porttitor lacus sit amet dignissim lacus. Vivamus magna justo lacinia eget consectetur sed.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>What is the SKO Expense Policy?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Sed consequat auctor neque. Nulla facilisi cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit vivamus vel nulla.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>Will Nutanix cover my room costs?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Praesent vestibulum dapibus nibh. Etiam iaculis nunc ac metus. Ut id nisl quis enim dignissim sagittis. Aliquam erat volutpat.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>How do I confirm ground transportation?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Fusce id purus ut enim blandit venenatis maecenas.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>What should I wear?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Nam pretium turpis et arcu. Duis arcu tortor suscipit eget imperdiet nec. Phasellus in felis donec semper sapien a libero.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>What if I have dietary restrictions?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>Will Wi-Fi be provided?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Aliquam lorem ante dapibus in viverra quis feugiat a tellus. Phasellus viverra nulla ut metus varius laoreet.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>Can I bring a guest?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt cras dapibus. Vivamus elementum semper nisi aenean vulputate.</p>
+											</div>
+										</div>
+										<div class="faq-item">
+											<button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+												<span>Who do I contact if I lose a personal item?</span>
+												<span class="faq-icon">+</span>
+											</button>
+											<div class="faq-answer">
+												<p>Maecenas ullamcorper dui et placerat feugiat eros tortor convallis. Integer tincidunt cras dapibus vivamus elementum.</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="callout">
+										<p><strong>Lorem ipsum:</strong> Sed augue ipsum egestas nec vestibulum et molestie sit amet feugiat. Praesent blandit laoreet nibh fusce convallis metus lorem@ipsum.com.</p>
+									</div>
+								</section>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Sidebar Logo -->
+								<div class="sidebar-logo">
+									<a href="welcome.html"><img src="../shared/logos/ntnx-sko17-logo-stacked.svg" alt="Nutanix Sales Kickoff"></a>
+								</div>
+
+							<!-- My Profile & Logout -->
+								<div class="sidebar-profile">
+									<a href="#" class="btn-profile">My Profile</a>
+									<a href="index.html" class="btn-logout">Logout</a>
+								</div>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<ul>
+										<li><a href="#overview">Overview</a></li>
+										<li><a href="#general-info">General Info</a></li>
+										<li><a href="#travel-expenses">Travel &amp; Expenses</a></li>
+										<li><a href="#hotel">Hotel</a></li>
+										<li><a href="#agenda">Agenda</a></li>
+										<li><a href="#faq">FAQ</a></li>
+									</ul>
+								</nav>
+
+							<!-- Get in Touch -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Lorem Ipsum Dolor Sit</p>
+									<ul class="contact">
+										<li class="icon solid fa-clock">Lorem ipsum dolor sit amet</li>
+										<li class="icon solid fa-envelope"><a href="mailto:lorem@ipsum.com">lorem@ipsum.com</a></li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Nutanix. All rights reserved.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+		<script src="../shared/site-switcher.js"></script>
+
+	<script>
+		(function() {
+			/* Hero text alignment */
+			function alignHeroText() {
+				var h2 = document.querySelector('#overview h2') || document.querySelector('.text-section h2');
+				var hero = document.querySelector('.hero-banner');
+				var overlay = hero && hero.querySelector('.hero-overlay');
+				if (h2 && hero && overlay) {
+					var offset = h2.getBoundingClientRect().left - hero.getBoundingClientRect().left;
+					overlay.style.paddingLeft = offset + 'px';
+				}
+			}
+			window.addEventListener('load', alignHeroText);
+			window.addEventListener('resize', alignHeroText);
+			setTimeout(alignHeroText, 100);
+
+			/* Scroll-spy: highlight active sidebar link on scroll */
+			var menuLinks = document.querySelectorAll('#menu ul a[href^="#"]');
+			var sections = [];
+			menuLinks.forEach(function(link) {
+				var id = link.getAttribute('href').slice(1);
+				var sec = document.getElementById(id);
+				if (sec) sections.push({ id: id, el: sec, link: link });
+			});
+
+			/* Click handler: set active immediately */
+			menuLinks.forEach(function(link) {
+				link.addEventListener('click', function() {
+					menuLinks.forEach(function(l) { l.classList.remove('is-active'); });
+					link.classList.add('is-active');
+				});
+			});
+
+			/* IntersectionObserver for scroll tracking */
+			if ('IntersectionObserver' in window && sections.length) {
+				var currentActive = null;
+				var observer = new IntersectionObserver(function(entries) {
+					/* Find the topmost visible section */
+					var visible = [];
+					entries.forEach(function(entry) {
+						var match = sections.find(function(s) { return s.el === entry.target; });
+						if (match) match.isIntersecting = entry.isIntersecting;
+					});
+					/* Pick the first section that is currently intersecting */
+					var active = null;
+					for (var i = 0; i < sections.length; i++) {
+						if (sections[i].isIntersecting) { active = sections[i]; break; }
+					}
+					if (active && active.id !== currentActive) {
+						currentActive = active.id;
+						menuLinks.forEach(function(l) { l.classList.remove('is-active'); });
+						active.link.classList.add('is-active');
+					}
+				}, {
+					rootMargin: '-10% 0px -60% 0px',
+					threshold: 0
+				});
+				sections.forEach(function(s) {
+					s.isIntersecting = false;
+					observer.observe(s.el);
+				});
+
+				/* Set initial active state */
+				if (sections.length) {
+					sections[0].link.classList.add('is-active');
+				}
+			}
+		})();
+	</script>
+	</body>
 </html>

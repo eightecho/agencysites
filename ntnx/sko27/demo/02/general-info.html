@@ -7,8 +7,113 @@
   <title>General Info — SKO FY27</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    /* ===== Global Style Guide Overrides ===== */
+    :root {
+      --font-display: 'Montserrat', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+    * {
+      text-transform: none !important;
+      font-family: 'Montserrat', sans-serif !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif !important;
+      text-transform: none !important;
+    }
+    h1 { font-weight: 800; letter-spacing: 0.02em; }
+    h2 { font-weight: 700; letter-spacing: 0.01em; }
+    h3 { font-weight: 600; }
+    h4 { font-weight: 600; }
+    .top-nav {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      height: auto;
+      min-height: 70px;
+    }
+    .top-nav > nav { justify-self: center; }
+    .nav-links { margin: 0; gap: 2rem; align-items: baseline; }
+    .nav-logo img { height: 70px; }
+    .nav-links a { font-size: 19px; font-weight: 500; }
+    .nav-links a::after { display: none; }
+    .nav-links a:hover { color: var(--iris); }
+    .nav-links a.is-active { font-weight: 700; color: var(--iris); }
+    .nav-right { justify-self: end; }
+    .nav-profile { font-size: 16px; padding: 0.5rem 1.3rem; }
+    .nav-profile:hover { color: var(--white); }
+    .nav-logout { font-size: 16px; font-weight: 600; }
+    .nav-logout:hover { color: var(--iris); }
+    .site-footer { font-size: 1em; }
+    .mobile-nav-drawer a { font-size: 0.9em; }
+    .mobile-nav-drawer .mobile-nav-actions {
+      gap: 0.5rem;
+    }
+    .mobile-nav-drawer .mobile-nav-actions .btn {
+      font-size: 16px;
+      font-weight: 600;
+      padding: 0.5rem 1.3rem;
+      text-align: center;
+      color: var(--white);
+    }
+    .mobile-nav-drawer .mobile-nav-actions .nav-logout {
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+    /* TOC sidebar overrides */
+    .toc-sidebar a {
+      font-size: 1rem;
+      border-left-width: 3px;
+    }
+    .toc-sidebar a:hover {
+      border-color: var(--iris);
+    }
+    .toc-sidebar a.is-active {
+      border-left-width: 3px;
+    }
+    /* Content section h2 */
+    .toc-content h2,
+    .content-area h2 {
+      font-weight: 500;
+      font-size: 2rem;
+    }
+    /* Page banner — diagonal reveal animation */
+    .page-banner {
+      position: relative;
+      overflow: hidden;
+      clip-path: polygon(0 0, 0 0, -20% 100%, 0 100%);
+      animation: bannerWipe 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.15s forwards;
+    }
+    .page-banner .banner-nexus-art {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      opacity: 0.3;
+      pointer-events: none;
+    }
+    .page-banner .banner-nexus-art svg {
+      width: 100%;
+      height: 100%;
+    }
+    .page-banner h1 {
+      position: relative;
+      z-index: 2;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeInUp 0.5s ease 0.6s forwards;
+    }
+    @keyframes bannerWipe {
+      0% { clip-path: polygon(0 0, 0 0, -20% 100%, 0 100%); }
+      100% { clip-path: polygon(0 0, 120% 0, 100% 100%, 0 100%); }
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
 <body>
 
@@ -25,14 +130,14 @@
     <a href="agenda.html">Agenda</a>
     <a href="faq.html">FAQ</a>
     <div class="mobile-nav-actions">
-      <a href="#" class="btn btn-outline">My Profile</a>
-      <a href="index.html" class="btn btn-ghost">Logout</a>
+      <a href="#" class="btn btn-primary">My Profile</a>
+      <a href="index.html" class="nav-logout">Logout</a>
     </div>
   </div>
 
   <!-- Top Nav -->
   <header class="top-nav">
-    <a href="index.html" class="nav-logo"><img src="../shared/logos/Nutanix-Logo-Charcoal-Gray-Digital.svg" alt="Nutanix" height="22"></a>
+    <a href="index.html" class="nav-logo"><img src="../shared/logos/ntnx-sko17-logo-stacked-horiz-blk.svg" alt="Nutanix Sales Kickoff" height="32"></a>
     <nav>
       <ul class="nav-links">
         <li><a href="welcome.html">Welcome</a></li>
@@ -51,6 +156,29 @@
 
   <!-- Page Banner -->
   <div class="page-banner">
+    <!-- Nexus background pattern -->
+    <div class="banner-nexus-art" aria-hidden="true">
+      <svg viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="nxLine" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+            <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#nxLine)" stroke-width="1.5">
+          <path d="M100 50 L400 350 L100 650 L-200 350 Z"/>
+          <path d="M500 200 L750 450 L500 700 L250 450 Z"/>
+          <path d="M300 -100 L600 200 L300 500 L0 200 Z"/>
+          <path d="M600 500 L850 750 L600 1000 L350 750 Z"/>
+        </g>
+        <g opacity="0.14" stroke="#FFFFFF" stroke-width="0.5">
+          <line x1="0" y1="0" x2="800" y2="900"/>
+          <line x1="800" y1="0" x2="0" y2="900"/>
+          <line x1="400" y1="0" x2="400" y2="900"/>
+          <line x1="0" y1="450" x2="800" y2="450"/>
+        </g>
+      </svg>
+    </div>
     <h1>General Information</h1>
   </div>
 
@@ -84,37 +212,41 @@
 
       <section id="attire" class="content-section" data-animate>
         <h2>Conference Attire</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore. A light jacket is recommended.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae sed mollis eros et ultrices tempus.</p>
+        <p>Mauris ipsum aliquam libero nec aenean vulputate eleifend tellus. Aenean leo ligula porttitor eu consequat vitae eleifend ac enim aliquam lorem ante dapibus in viverra quis feugiat a tellus.</p>
       </section>
 
       <section id="weather" class="content-section" data-animate>
         <h2>Weather</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, with highs in the 100s and lows in the mid-70s.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero pharetra augue. Praesent egestas tristique nibh sed mollis eros et ultrices tempus mauris ipsum aliquam libero.</p>
+        <p>Nec aenean vulputate eleifend tellus aenean leo ligula porttitor eu consequat vitae eleifend ac enim. Aliquam lorem ante dapibus in viverra quis feugiat a tellus phasellus viverra nulla ut metus varius laoreet.</p>
       </section>
 
       <section id="general-session" class="content-section" data-animate>
         <h2>General Session</h2>
-        <p>Lorem ipsum dolor sit amet on Monday. Consectetur adipiscing elit timing has yet to be determined.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna vel scelerisque nisl. Donec pede justo fringilla vel aliquet nec vulputate eget arcu in enim justo rhoncus ut imperdiet a venenatis vitae justo.</p>
+        <p>Nullam dictum felis eu pede mollis pretium integer tincidunt. Cras dapibus vivamus elementum semper nisi aenean vulputate eleifend tellus aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
       </section>
 
       <section id="evening-events" class="content-section" data-animate>
         <h2>Evening Events</h2>
-        <p>Lorem ipsum dolor sit amet on Monday and Wednesday evenings.</p>
-        <p class="mt-2"><strong>Monday | Lorem Ipsum Reception</strong><br>Dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <p class="mt-2"><strong>Tuesday | Free Night</strong><br>Lorem ipsum dolor sit amet. Consectetur adipiscing elit, sed do eiusmod tempor. <strong>Dinner charges may not exceed $125 per person</strong>.</p>
-        <p class="mt-2"><strong>Wednesday | Global Awards Dinner</strong><br>Dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sagittis lacus vel augue.</p>
+        <p class="mt-2"><strong>Lorem Ipsum Dolor Sit</strong><br>Cras mattis consectetur purus sit amet fermentum. Etiam porta sem malesuada magna mollis euismod.</p>
+        <p class="mt-2"><strong>Lorem Ipsum Consectetur</strong><br>Nullam id dolor id nibh ultricies vehicula ut id elit. Fusce dapibus tellus ac cursus commodo. <strong>Vestibulum id ligula porta felis euismod semper</strong>.</p>
+        <p class="mt-2"><strong>Lorem Ipsum Adipiscing</strong><br>Maecenas sed diam eget risus varius blandit sit amet non magna. Morbi leo risus porta ac consectetur.</p>
       </section>
 
       <section id="name-badges" class="content-section" data-animate>
         <h2>Name Badges</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit &mdash; within the conference space, during sessions, and at evening events. Access will not be granted unless your badge is worn and visible.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare.</p>
       </section>
 
       <section id="on-site-assistance" class="content-section" data-animate>
         <h2>On-Site Assistance</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus elementum semper nisi aenean vulputate eleifend tellus aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
+        <p>Aliquam lorem ante dapibus in viverra quis feugiat a tellus. Phasellus viverra nulla ut metus varius laoreet quisque rutrum aenean imperdiet etiam ultricies nisi vel augue.</p>
         <div class="callout mt-2">
-          <p>Sunday: 12:00 PM&ndash;7:00 PM<br>Monday: 7:00 AM&ndash;7:30 PM<br>Tuesday: 7:00 AM&ndash;6:00 PM<br>Wednesday: 7:00 AM&ndash;6:30 PM</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
         </div>
       </section>
 
@@ -122,21 +254,23 @@
         <h2>Meals On-Site</h2>
         <p>Lorem ipsum dolor sit amet:</p>
         <ul class="mt-1">
-          <li>Monday: Breakfast, lunch, snacks, and dinner</li>
-          <li>Tuesday: Breakfast, lunch, and snacks</li>
-          <li>Wednesday: Breakfast, lunch, snacks, and dinner</li>
+          <li>Lorem ipsum dolor sit amet consectetur adipiscing elit</li>
+          <li>Praesent commodo cursus magna vel scelerisque nisl</li>
+          <li>Donec ullamcorper nulla non metus auctor fringilla</li>
         </ul>
-        <p class="mt-2">Please indicate during registration if you have dietary restrictions.</p>
+        <p class="mt-2">Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
       </section>
 
       <section id="expense-policy" class="content-section" data-animate>
         <h2>Expense Policy</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor: <a href="#">Lorem Ipsum Travel &amp; Expense Policy</a>.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae: <a href="#">Lorem Ipsum Travel &amp; Expense Policy</a>.</p>
+        <p>Donec vitae sapien ut libero venenatis faucibus nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt duis leo sed fringilla mauris sit amet nibh donec sodales sagittis magna.</p>
       </section>
 
       <section id="guests" class="content-section" data-animate>
         <h2>Guests / Children</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Companions/spouses/children are not included in the event.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed consectetur. Vivamus in felis eu sapien cursus vestibulum proin eu mi nulla ac enim in tempor turpis nec euismod scelerisque.</p>
+        <p>Quam pharetra magna ac consequat malesuada arcu nunc blandit nunc vehicula quam ut placerat orci lacus vestibulum vel elit non enim eget ante dictum cursus sed auctor.</p>
       </section>
 
     </div>
@@ -147,13 +281,13 @@
     <div class="footer-inner">
       <div class="footer-contact">
         <strong>SKO FY27 Registration Team</strong><br>
-        Email: <a href="#">sko@ntnxevents.com</a> &middot; Hours: Monday&ndash;Friday, 8:00 AM&ndash;5:00 PM PDT
+        Email: <a href="#">lorem@ipsum.com</a> &middot; Hours: Monday&ndash;Friday, 8:00 AM&ndash;5:00 PM PDT
       </div>
       <div>&copy; <span id="year"></span> Nutanix, Inc.</div>
     </div>
   </footer>
 
-  <script src="assets/main.js"></script>
+  <script src="assets/main.js?v=2"></script>
   <script src="../shared/site-switcher.js"></script>
 </body>
 </html>

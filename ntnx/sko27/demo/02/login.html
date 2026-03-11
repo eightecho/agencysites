@@ -4,13 +4,12 @@
   <meta charset="UTF-8">
   <meta name="google" content="notranslate">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nutanix SKO FY27</title>
+  <title>Log In — Nutanix SKO FY27</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/styles.css">
   <style>
-    /* ===== Global Style Guide Overrides ===== */
     :root {
       --font-display: 'Montserrat', sans-serif;
       --font-body: 'Montserrat', sans-serif;
@@ -28,6 +27,29 @@
     h3 { font-weight: 600; }
     h4 { font-weight: 600; }
     .login-nexus-art { opacity: 0.3; }
+
+    /* Show background through modal */
+    .login-content { display: none; }
+    .login-modal-overlay { display: flex !important; background: transparent !important; backdrop-filter: none !important; }
+
+    .form-bottom-link {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      text-align: center;
+    }
+
+    .form-bottom-link a {
+      color: var(--iris);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .form-bottom-link a:hover { color: var(--iris-deep); }
+
+    .login-modal-close {
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -72,6 +94,38 @@
         <a href="register.html" class="btn btn-primary">Register Now</a>
         <p class="login-link">Already have an account? <a href="login.html">Log in here</a></p>
       </div>
+    </div>
+  </div>
+
+  <!-- Login Modal -->
+  <div class="login-modal-overlay" id="loginModal">
+    <div class="login-modal">
+      <a href="index.html" class="login-modal-close">Close &times;</a>
+
+      <img class="logo-modal" src="../shared/logos/Nutanix-Logo-Charcoal-Gray-Digital.svg" alt="Nutanix" style="height:22px;">
+
+      <h2>Registration</h2>
+      <p>Welcome to the SKO FY27 registration page. Please enter your email address below and create a password to begin your registration. If you've already registered and would like to make changes to your information, please click 'Log in' below.</p>
+
+      <h2 class="mt-3">Log In</h2>
+      <form onsubmit="return false;">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" value="DEMO" readonly>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="text" id="password" value="Click Log In" readonly>
+          </div>
+        </div>
+        <div class="form-links">
+          <a href="#">Forgot your password?</a>
+          <span class="text-muted">Not yet registered? <a href="register.html">Register here</a>.</span>
+        </div>
+        <a href="welcome.html" class="btn btn-primary">Log In</a>
+        <p class="form-bottom-link"><a href="#">Nutanix Privacy Statement</a></p>
+      </form>
     </div>
   </div>
 
