@@ -79,7 +79,7 @@ h3{font-size:1.15rem;margin-bottom:.5rem;font-family:var(--font-body);font-weigh
 /* Centered content */
 .login-content{position:relative;z-index:2;text-align:center;max-width:500px;padding:40px 24px}
 .login-lockup{margin-bottom:32px}
-.login-lockup img{height:48px}
+.login-lockup img{height:140px}
 .login-title{font-family:var(--font-display);font-size:3.5rem;font-weight:800;letter-spacing:-0.02em;line-height:1;margin-bottom:12px;color:var(--white)}
 .login-date{font-size:.9rem;color:rgba(255,255,255,.6);margin-bottom:40px}
 .login-actions{display:flex;flex-direction:column;align-items:center;gap:16px}
