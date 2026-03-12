@@ -6,7 +6,7 @@
 		<title>Nutanix SKO FY27</title>
 		<meta charset="utf-8" />
 		<meta name="google" content="notranslate">
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -526,14 +526,248 @@
 					transform: none !important;
 				}
 			}
+
+			/* Mobile topbar — hidden on desktop */
+			.mobile-topbar {
+				display: none;
+			}
+
+			/* ===== MOBILE: Tablet & below ===== */
+			@media screen and (max-width: 768px) {
+				/* Prevent horizontal scroll */
+				#wrapper, body {
+					overflow-x: hidden;
+				}
+
+				/* --- Mobile topbar --- */
+				.mobile-topbar {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					position: fixed;
+					top: 0;
+					left: 0;
+					right: 0;
+					z-index: 10002;
+					height: 56px;
+					padding: 0 1.5em;
+					background: linear-gradient(135deg, #5e42a6 0%, #7855FA 100%);
+					box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+				}
+				.mobile-topbar .topbar-logo {
+					border-bottom: none !important;
+					text-decoration: none !important;
+				}
+				.mobile-topbar .topbar-logo img {
+					height: 36px;
+					display: block;
+				}
+				.mobile-topbar .topbar-hamburger {
+					background: none !important;
+					border: none !important;
+					box-shadow: none !important;
+					outline: none !important;
+					-webkit-appearance: none !important;
+					appearance: none !important;
+					cursor: pointer;
+					padding: 8px;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					gap: 5px;
+					width: 36px;
+					height: 36px;
+				}
+				.mobile-topbar .topbar-hamburger span {
+					display: block;
+					width: 22px;
+					height: 2px;
+					background: #fff;
+					border-radius: 2px;
+					transition: transform 0.3s ease, opacity 0.3s ease;
+				}
+				.mobile-topbar .topbar-hamburger.is-open span:nth-child(1) {
+					transform: translateY(7px) rotate(45deg);
+				}
+				.mobile-topbar .topbar-hamburger.is-open span:nth-child(2) {
+					opacity: 0;
+				}
+				.mobile-topbar .topbar-hamburger.is-open span:nth-child(3) {
+					transform: translateY(-7px) rotate(-45deg);
+				}
+
+				/* --- Hide desktop top bar --- */
+				.top-bar {
+					display: none !important;
+				}
+
+				/* --- Body push down for mobile topbar --- */
+				body {
+					padding-top: 56px !important;
+				}
+
+				/* --- Sidebar overrides --- */
+				#sidebar {
+					top: 56px !important;
+					height: calc(100vh - 56px) !important;
+					background: #1F1F20 !important;
+					display: block !important;
+					transform: translateX(-100%) !important;
+					transition: transform 0.3s ease !important;
+					width: 280px !important;
+					z-index: 10001 !important;
+					overflow-y: auto !important;
+					overflow-x: hidden !important;
+				}
+				#sidebar .toggle {
+					display: none !important;
+				}
+				body.mobile-menu-open #sidebar {
+					transform: translateX(0) !important;
+				}
+				#sidebar > .inner {
+					display: flex !important;
+					flex-direction: column !important;
+					padding: 2em 1.5em !important;
+					justify-content: flex-start !important;
+				}
+				#sidebar nav ul {
+					display: flex !important;
+					flex-direction: column !important;
+					list-style: none !important;
+					padding: 0 !important;
+					margin: 0 !important;
+				}
+				#sidebar nav ul li {
+					display: block !important;
+					margin: 0 !important;
+					height: auto !important;
+					min-height: 0 !important;
+					border-bottom: none !important;
+				}
+				#sidebar nav a {
+					display: block !important;
+					padding: 0.85em 0 !important;
+					font-size: 1em !important;
+					height: auto !important;
+					min-height: 0 !important;
+					line-height: 1.4 !important;
+					text-align: left !important;
+					color: rgba(255,255,255,0.65) !important;
+					text-decoration: none !important;
+					border-bottom: none !important;
+				}
+				#sidebar nav a::after,
+				#sidebar nav a::before {
+					display: none !important;
+				}
+				#sidebar nav a:hover,
+				#sidebar nav a.active {
+					color: #fff !important;
+				}
+				#sidebar nav a.active {
+					font-weight: 600 !important;
+					position: relative !important;
+				}
+				#sidebar nav a.active::after {
+					display: block !important;
+					content: '' !important;
+					position: absolute !important;
+					bottom: 0 !important;
+					left: 0 !important;
+					width: 100% !important;
+					height: 3px !important;
+					background: linear-gradient(to right, #5E42A6, #B74E91) !important;
+					border-radius: 2px !important;
+				}
+
+				/* --- Content area --- */
+				#wrapper > section > .inner {
+					padding: 56px 1.5em 2em 1.5em !important;
+				}
+
+				/* --- Anchor offset --- */
+				section[id] {
+					scroll-margin-top: 64px;
+				}
+
+				/* Shrink hero tag text */
+				.hero-tag {
+					font-size: 3em !important;
+				}
+
+				/* Shrink background watermark */
+				.hero-bg-text {
+					font-size: 25vw;
+				}
+
+				/* Hero section padding */
+				.hero-section > .inner {
+					padding-bottom: 6em !important;
+				}
+
+				/* Bottom bar — stack vertically on small screens */
+				.bottom-bar {
+					flex-direction: column;
+					gap: 4px;
+					text-align: center;
+					font-size: 0.8rem;
+					padding: 8px 16px;
+				}
+
+				/* Give last section enough bottom padding so content isn't hidden behind fixed bottom bar */
+				#wrapper > section:last-child > .inner {
+					padding-bottom: 100px !important;
+				}
+
+				/* FAQ questions — prevent overflow */
+				.faq-question {
+					white-space: normal !important;
+					line-height: 1.4 !important;
+					height: auto !important;
+					max-width: 100%;
+					word-wrap: break-word;
+					padding: 0.8em 0 !important;
+				}
+				.faq-question span:first-child {
+					min-width: 0;
+					overflow-wrap: break-word;
+					white-space: normal !important;
+					line-height: 1.4 !important;
+				}
+				.faq-icon {
+					flex-shrink: 0;
+				}
+			}
+
+			/* ===== MOBILE: Small phones ===== */
+			@media screen and (max-width: 480px) {
+				.hero-tag {
+					font-size: 2.5em !important;
+				}
+
+				/* Top bar — reduce button size */
+				.top-bar .btn-profile {
+					padding: 6px 16px;
+					font-size: 0.8rem;
+				}
+			}
 		</style>
 	</head>
 	<body class="is-preload">
 
+		<!-- Mobile Top Bar -->
+		<div class="mobile-topbar">
+			<a href="welcome.html" class="topbar-logo"><img src="../shared/logos/nutanix-skofy27-logo-white.png" alt="Nutanix SKO FY27"></a>
+			<button class="topbar-hamburger" id="mobileMenuToggle" aria-label="Toggle menu">
+				<span></span><span></span><span></span>
+			</button>
+		</div>
+
 		<!-- Top Utility Bar -->
 		<div class="top-bar">
 			<div class="top-bar-left">
-				<a href="welcome.html" class="top-bar-logo"><img src="../shared/logos/Nutnaix-skofy27-wht@3x.png" alt="Nutanix SKO FY27"></a>
+				<a href="welcome.html" class="top-bar-logo"><img src="../shared/logos/nutanix-skofy27-logo-white.png" alt="Nutanix SKO FY27"></a>
 			</div>
 			<div class="top-bar-right">
 				<a href="#" class="btn-profile">My Profile</a>
@@ -960,6 +1194,34 @@
 		<script>
 			var y = document.getElementById('year');
 			if (y) y.textContent = new Date().getFullYear();
+
+			// Mobile hamburger toggle
+			var hamburger = document.getElementById('mobileMenuToggle');
+			if (hamburger) {
+				hamburger.addEventListener('click', function(e) {
+					e.stopPropagation();
+					document.body.classList.toggle('mobile-menu-open');
+					hamburger.classList.toggle('is-open');
+				});
+				// Close on nav link click
+				var navLinks = document.querySelectorAll('#sidebar nav a');
+				navLinks.forEach(function(link) {
+					link.addEventListener('click', function() {
+						document.body.classList.remove('mobile-menu-open');
+						hamburger.classList.remove('is-open');
+					});
+				});
+				// Close on click outside
+				document.addEventListener('click', function(e) {
+					if (document.body.classList.contains('mobile-menu-open')) {
+						var sidebar = document.getElementById('sidebar');
+						if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+							document.body.classList.remove('mobile-menu-open');
+							hamburger.classList.remove('is-open');
+						}
+					}
+				});
+			}
 		</script>
 
 	</body>

@@ -465,9 +465,230 @@
 				color: #555;
 				line-height: 1.8;
 			}
+
+			/* ===== MOBILE TOP BAR ===== */
+			.mobile-topbar {
+				display: none;
+			}
+			@media screen and (max-width: 1280px) {
+				/* Offset anchor targets so they don't hide behind the fixed top bar */
+				.text-section[id],
+				section[id] {
+					scroll-margin-top: 64px;
+				}
+			}
+			@media screen and (max-width: 1280px) {
+				.mobile-topbar {
+					display: flex;
+					align-items: center;
+					justify-content: space-between;
+					position: fixed;
+					top: 0;
+					left: 0;
+					right: 0;
+					z-index: 10002;
+					height: 56px;
+					padding: 0 16px;
+					background: linear-gradient(135deg, #5e42a6 0%, #7855FA 100%);
+					box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+				}
+				.mobile-topbar .topbar-logo {
+					border-bottom: none !important;
+					text-decoration: none !important;
+				}
+				.mobile-topbar .topbar-logo img {
+					height: 36px;
+					display: block;
+				}
+				.mobile-topbar .topbar-hamburger {
+					background: none !important;
+					border: none !important;
+					box-shadow: none !important;
+					outline: none !important;
+					-webkit-appearance: none !important;
+					appearance: none !important;
+					cursor: pointer;
+					padding: 8px;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					gap: 5px;
+					width: 36px;
+					height: 36px;
+				}
+				.mobile-topbar .topbar-hamburger span {
+					display: block;
+					width: 22px;
+					height: 2px;
+					background: #fff;
+					border-radius: 2px;
+					transition: transform 0.3s ease, opacity 0.3s ease;
+				}
+				/* Animate hamburger → X when sidebar is open */
+				.mobile-topbar .topbar-hamburger.is-open span:nth-child(1) {
+					transform: translateY(7px) rotate(45deg);
+				}
+				.mobile-topbar .topbar-hamburger.is-open span:nth-child(2) {
+					opacity: 0;
+				}
+				.mobile-topbar .topbar-hamburger.is-open span:nth-child(3) {
+					transform: translateY(-7px) rotate(-45deg);
+				}
+			}
+
+			/* ===== MOBILE: Tablet & below ===== */
+			@media screen and (max-width: 1280px) {
+				/* Prevent horizontal scroll from animated/absolute elements */
+				#wrapper {
+					overflow-x: hidden;
+				}
+
+				/* Push content below fixed top bar */
+				#main > .inner {
+					padding-top: 56px !important;
+				}
+
+				/* Hide the framework's built-in toggle */
+				#sidebar .toggle {
+					display: none !important;
+				}
+
+				/* Sidebar: fixed overlay that slides in/out */
+				#sidebar {
+					position: fixed !important;
+					top: 56px !important;
+					left: 0;
+					width: 18em;
+					height: calc(100vh - 56px) !important;
+					z-index: 10000;
+					align-self: auto;
+					background: #1F1F20;
+					transition: transform 0.35s ease;
+					transform: translateX(0);
+				}
+				/* Inner must NOT be position:fixed — keep it in sidebar flow */
+				#sidebar > .inner {
+					position: relative !important;
+					top: auto !important;
+					left: auto !important;
+					width: 100%;
+					height: 100%;
+					overflow-y: auto !important;
+				}
+				/* Sidebar hidden by default — slide off-screen */
+				#sidebar {
+					transform: translateX(-100%) !important;
+					box-shadow: none !important;
+				}
+				#sidebar.inactive {
+					margin-left: 0 !important;
+				}
+				/* Body class overrides: show sidebar when menu is open */
+				body.mobile-menu-open #sidebar {
+					transform: translateX(0) !important;
+					box-shadow: 0 0 5em 0 rgba(0,0,0,0.25) !important;
+				}
+
+				/* Hero fills full viewport width */
+				.hero-banner {
+					width: 100vw;
+					margin-left: -3em;
+				}
+
+				/* Content padding */
+				#main > .inner {
+					padding: 56px 3em 0 3em !important;
+				}
+			}
+
+			/* ===== MOBILE: Phone landscape & below ===== */
+			@media screen and (max-width: 736px) {
+				/* Scale down base font */
+				body, input, select, textarea {
+					font-size: 14px !important;
+				}
+
+				/* Reduce content padding */
+				#main > .inner {
+					padding: 0 1.5em !important;
+				}
+
+				/* Hero banner — full bleed, shorter */
+				.hero-banner {
+					width: 100vw;
+					margin-left: -1.5em;
+					height: 320px;
+				}
+
+				/* Hero text — smaller */
+				.hero-banner .hero-overlay {
+					padding-left: 1.5em !important;
+					padding-right: 1.5em;
+				}
+				.hero-banner .hero-overlay h1 {
+					font-size: 2.4em;
+				}
+				.hero-banner .hero-overlay p {
+					font-size: 1.2em;
+				}
+
+				/* Text sections — tighter */
+				.text-section h2 {
+					font-size: 1.3em;
+				}
+				.text-section h3 {
+					font-size: 1.05em;
+				}
+
+				/* Callout box */
+				.callout {
+					padding: 1em 1.25em;
+				}
+
+				/* FAQ */
+				.faq-question {
+					font-size: 1em !important;
+				}
+			}
+
+			/* ===== MOBILE: Small phones ===== */
+			@media screen and (max-width: 480px) {
+				body, input, select, textarea {
+					font-size: 13px !important;
+				}
+
+				#main > .inner {
+					padding: 0 1.25em !important;
+				}
+
+				.hero-banner {
+					margin-left: -1.25em;
+					height: 260px;
+				}
+				.hero-banner .hero-overlay {
+					padding-left: 1.25em !important;
+					padding-right: 1.25em;
+				}
+				.hero-banner .hero-overlay h1 {
+					font-size: 2em;
+				}
+				.hero-banner .hero-overlay p {
+					font-size: 1em;
+				}
+			}
 		</style>
 	</head>
 	<body class="is-preload">
+
+		<!-- Mobile Top Bar -->
+		<div class="mobile-topbar">
+			<a href="welcome.html" class="topbar-logo"><img src="../shared/logos/nutanix-skofy27-logo-white.png" alt="Nutanix SKO FY27"></a>
+			<button class="topbar-hamburger" id="mobileMenuToggle" aria-label="Toggle menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+		</div>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -478,7 +699,7 @@
 
 							<!-- Header (hidden via CSS) -->
 								<header id="header">
-									<a href="welcome.html" class="logo"><img src="../shared/logos/Nutnaix-skofy27-blk@3x.png" alt="Nutanix SKO FY27" style="height:32px;vertical-align:middle;"></a>
+									<a href="welcome.html" class="logo"><img src="../shared/logos/nutanix-skofy27-logo-black.png" alt="Nutanix SKO FY27" style="height:32px;vertical-align:middle;"></a>
 								</header>
 
 							<!-- Hero Banner (Animated) -->
@@ -937,8 +1158,9 @@
 
 	<script>
 		(function() {
-			/* Hero text alignment */
+			/* Hero text alignment — skip on mobile where CSS handles it */
 			function alignHeroText() {
+				if (window.innerWidth <= 736) return;
 				var h2 = document.querySelector('#overview h2') || document.querySelector('.text-section h2');
 				var hero = document.querySelector('.hero-banner');
 				var overlay = hero && hero.querySelector('.hero-overlay');
@@ -1001,6 +1223,34 @@
 				if (sections.length) {
 					sections[0].link.classList.add('is-active');
 				}
+			}
+
+			/* Mobile hamburger toggle */
+			var hamburger = document.getElementById('mobileMenuToggle');
+			if (hamburger) {
+				hamburger.addEventListener('click', function(e) {
+					e.stopPropagation();
+					document.body.classList.toggle('mobile-menu-open');
+					hamburger.classList.toggle('is-open');
+				});
+				/* Close sidebar when a menu link is tapped */
+				var navLinks = document.querySelectorAll('#menu a');
+				navLinks.forEach(function(link) {
+					link.addEventListener('click', function() {
+						document.body.classList.remove('mobile-menu-open');
+						hamburger.classList.remove('is-open');
+					});
+				});
+				/* Close sidebar when tapping outside */
+				document.addEventListener('click', function(e) {
+					if (document.body.classList.contains('mobile-menu-open')) {
+						var sidebar = document.getElementById('sidebar');
+						if (!sidebar.contains(e.target) && !hamburger.contains(e.target)) {
+							document.body.classList.remove('mobile-menu-open');
+							hamburger.classList.remove('is-open');
+						}
+					}
+				});
 			}
 		})();
 	</script>

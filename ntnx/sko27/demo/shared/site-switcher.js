@@ -18,8 +18,8 @@
   css.textContent = [
     '.sko-switcher,.sko-switcher *{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif !important;box-sizing:border-box !important}',
     '.sko-switcher{position:fixed;bottom:20px;right:20px;z-index:99999;display:flex;align-items:center;gap:10px}',
-    '.sko-switcher-label{color:#fff;font-size:12px !important;font-weight:500;background:rgba(31,31,32,0.85);backdrop-filter:blur(8px);padding:6px 14px;border-radius:100px;box-shadow:0 4px 16px rgba(0,0,0,0.3);white-space:nowrap;cursor:pointer;transition:background .15s ease}',
-    '.sko-switcher-label:hover{background:rgba(55,55,56,0.95)}',
+    '.sko-switcher-label{color:#fff;font-size:12px !important;font-weight:500;background:rgba(80,80,85,0.9);backdrop-filter:blur(8px);padding:6px 14px;border-radius:100px;box-shadow:0 4px 16px rgba(0,0,0,0.3);white-space:nowrap;cursor:pointer;transition:background .15s ease}',
+    '.sko-switcher-label:hover{background:rgba(100,100,105,0.95)}',
     '.sko-switcher-panel svg rect,.sko-switcher-panel svg path{fill:none !important;stroke:currentColor !important;stroke-width:1.5 !important}',
     '.sko-switcher-panel{position:absolute;bottom:40px;right:0;background:#1F1F20;border-radius:12px;padding:8px;min-width:280px;box-shadow:0 8px 32px rgba(0,0,0,0.5);opacity:0;visibility:hidden;transform:translateY(8px) scale(0.95);transition:all .15s ease}',
     '.sko-switcher-panel.is-open{opacity:1;visibility:visible;transform:translateY(0) scale(1)}',
@@ -34,11 +34,14 @@
     '.sko-switcher-panel .sko-link{display:flex;align-items:center;gap:8px;padding:8px 14px;text-decoration:none !important;border:none !important;border-bottom:none !important;color:#9CA3AF !important;border-radius:8px;font-size:12px !important;font-weight:500;transition:color .12s ease,background .12s ease;margin:0 !important;line-height:1.4 !important}',
     '.sko-switcher-panel .sko-link:hover{color:#fff !important;background:rgba(120,85,250,0.1);border:none !important;border-bottom:none !important}',
     '.sko-switcher-panel .sko-link.is-current{color:#fff !important;background:rgba(120,85,250,0.2);cursor:pointer}',
-    '.sko-switcher-panel .sko-link .sko-badge{display:inline-block;font-size:9px !important;font-weight:600;letter-spacing:0.04em;color:#9B7FFF;background:rgba(120,85,250,0.12);padding:2px 6px;border-radius:3px;flex-shrink:0;min-width:44px;text-align:center}',
+    '.sko-switcher-panel .sko-link .sko-badge{display:inline-block;font-size:9px !important;font-weight:600;letter-spacing:0.04em;color:#9B7FFF;background:rgba(120,85,250,0.12);padding:2px 6px;border-radius:3px;flex-shrink:0;width:58px;text-align:center}',
     '.sko-switcher-panel .sko-link .sko-link-label{flex:1;font-size:12px !important}',
     '.sko-switcher-panel .sko-link svg{width:12px;height:12px;opacity:0.3;flex-shrink:0}',
     '.sko-switcher-panel .sko-link:hover svg{opacity:0.8}',
-    '.sko-switcher-panel .sko-link-divider{height:1px;background:rgba(255,255,255,0.05);margin:2px 14px}'
+    '.sko-switcher-panel .sko-link-divider{height:1px;background:rgba(255,255,255,0.05);margin:2px 14px}',
+    '@media(max-width:768px){',
+    '  .sko-switcher-panel{max-width:calc(100vw - 2rem)}',
+    '}'
   ].join('\n');
   document.head.appendChild(css);
 
@@ -90,19 +93,19 @@
 
     // Website link
     var isWebCurrent = current === site.id && !isEmailPage;
-    panel.appendChild(makeLink(base + '0' + site.id + '/index.html', 'Website', 'View Site', isWebCurrent));
+    panel.appendChild(makeLink(base + '0' + site.id + '/index.html', 'Website', 'View Design 0' + site.id, isWebCurrent));
 
     panel.appendChild(makeLinkDivider());
 
     // Email save the date link
     var isInviteCurrent = current === site.id && isEmailPage && currentPage === 'savedate.html';
-    panel.appendChild(makeLink(base + '0' + site.id + '/emails/savedate.html', 'Email', 'Save the Date', isInviteCurrent));
+    panel.appendChild(makeLink(base + '0' + site.id + '/emails/savedate.html', 'Email', 'View Save the Date', isInviteCurrent));
 
     panel.appendChild(makeLinkDivider());
 
     // Email registration open link
     var isConfirmCurrent = current === site.id && isEmailPage && currentPage === 'regopen.html';
-    panel.appendChild(makeLink(base + '0' + site.id + '/emails/regopen.html', 'Email', 'Registration Open', isConfirmCurrent));
+    panel.appendChild(makeLink(base + '0' + site.id + '/emails/regopen.html', 'Email', 'View Registration Open', isConfirmCurrent));
 
     if (i < sites.length - 1) {
       var sectionDiv = document.createElement('div');

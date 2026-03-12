@@ -138,14 +138,14 @@ h3{font-size:1.15rem;margin-bottom:.5rem;font-family:var(--font-body);font-weigh
   padding:0 2rem;
 }
 .nav-logo{flex-shrink:0;margin-right:1rem}
-.nav-logo img{height:22px}
+.nav-logo img{height:50px}
 .nav-links{
   display:flex;gap:1.75rem;margin:0 auto;
   list-style:none;padding:0;
 }
 .nav-links li{list-style:none}
 .nav-links a{
-  font-size:.85rem;font-weight:500;color:var(--gray-500);
+  font-size:16px;font-weight:500;color:var(--gray-500);
   padding:.25rem 0;position:relative;transition:color var(--transition);
 }
 .nav-links a::after{
@@ -164,7 +164,7 @@ h3{font-size:1.15rem;margin-bottom:.5rem;font-family:var(--font-body);font-weigh
   text-decoration:none;transition:background var(--transition);
 }
 .nav-profile:hover{background:var(--iris-deep);color:var(--white)}
-.nav-logout{font-size:.8rem;color:var(--gray-500)}
+.nav-logout{font-size:15px;color:var(--gray-500)}
 .nav-logout:hover{color:var(--iris)}
 
 /* Mobile nav toggle */
@@ -202,19 +202,21 @@ h3{font-size:1.15rem;margin-bottom:.5rem;font-family:var(--font-body);font-weigh
 .mobile-nav-drawer a.is-active{color:var(--iris);font-weight:600}
 .mobile-nav-drawer .mobile-nav-actions{margin-top:1.5rem;display:flex;flex-direction:column;gap:.75rem}
 
-@media(max-width:768px){
+@media(max-width:1024px){
   .mobile-nav-toggle{display:flex}
   .nav-links,.nav-right{display:none}
-  .top-nav{padding:0 1rem}
+  .top-nav{padding:0 1.5rem;padding-right:4.5rem}
+  .nav-logo img{height:40px !important}
 }
 
 /* ===================================================================
    PAGE BANNER — 120px iris gradient strip
    =================================================================== */
 .page-banner{
-  height:var(--banner-height);
+  min-height:var(--banner-height);
   background:linear-gradient(135deg,var(--iris-deep) 0%,var(--iris) 100%);
   display:flex;align-items:center;justify-content:center;
+  padding:1rem 1.5rem;
 }
 .page-banner h1{color:var(--white);margin:0;text-transform:uppercase;letter-spacing:.06em}
 
@@ -271,8 +273,8 @@ h3{font-size:1.15rem;margin-bottom:.5rem;font-family:var(--font-body);font-weigh
 /* Content column */
 .toc-content{flex:1;min-width:0}
 
-@media(max-width:768px){
-  .content-with-toc{flex-direction:column;gap:0;padding:1.5rem 1rem 3rem}
+@media(max-width:1024px){
+  .content-with-toc{flex-direction:column;gap:0;padding:1.5rem 1.5rem 3rem}
   .toc-sidebar{
     position:relative;top:auto;
     flex:none;width:100%;
@@ -350,11 +352,8 @@ h3{font-size:1.15rem;margin-bottom:.5rem;font-family:var(--font-body);font-weigh
 .feature-card h3{color:var(--charcoal)}
 .feature-card p{font-size:.88rem;color:var(--gray-500);line-height:1.65}
 
-@media(max-width:768px){
+@media(max-width:1024px){
   .feature-grid{grid-template-columns:1fr;max-width:400px}
-}
-@media(min-width:769px) and (max-width:1024px){
-  .feature-grid{grid-template-columns:repeat(2,1fr)}
 }
 
 /* Countdown */
@@ -468,7 +467,7 @@ h3{font-size:1.15rem;margin-bottom:.5rem;font-family:var(--font-body);font-weigh
    =================================================================== */
 .faq-list{max-width:var(--content-max);margin:0 auto}
 
-.faq-item{border-bottom:1px solid var(--gray-100);transition:border-color var(--transition)}
+.faq-item{border-bottom:1px solid var(--gray-100);transition:border-color var(--transition);padding-left:calc(3px + 1rem)}
 .faq-item.is-open{border-left:3px solid var(--iris);padding-left:1rem}
 
 .faq-question{
@@ -526,6 +525,79 @@ h3{font-size:1.15rem;margin-bottom:.5rem;font-family:var(--font-body);font-weigh
   transition:opacity .5s ease,transform .5s ease;
 }
 [data-animate].is-visible{opacity:1;transform:translateY(0)}
+
+/* ===================================================================
+   MOBILE OVERRIDES
+   =================================================================== */
+@media(max-width:1024px){
+  /* Nav: compact logo + clean hamburger */
+  .top-nav{
+    height:56px !important;
+    min-height:56px !important;
+    padding:0 1.5rem !important;
+    display:flex !important;
+    align-items:center !important;
+  }
+  .nav-logo img{
+    height:32px !important;
+  }
+  .mobile-nav-toggle{
+    display:flex !important;
+    position:fixed !important;
+    top:8px !important;
+    right:12px !important;
+    width:40px !important;
+    height:40px !important;
+    border-radius:6px !important;
+    background:transparent !important;
+    border:none !important;
+    box-shadow:none !important;
+  }
+  .mobile-nav-toggle svg{
+    width:24px !important;
+    height:24px !important;
+  }
+
+  /* Page banner: compact on mobile */
+  .page-banner{
+    min-height:80px !important;
+    height:auto !important;
+    padding:1rem 1.5rem !important;
+    justify-content:flex-start !important;
+  }
+  .page-banner h1{
+    font-size:clamp(1.4rem,5vw,2rem) !important;
+  }
+
+  /* Body text sizing */
+  body{
+    font-size:14px !important;
+  }
+  h1{font-size:clamp(1.5rem,5vw,2rem) !important}
+  h2{font-size:clamp(1.2rem,3.5vw,1.5rem) !important}
+
+  /* TOC sidebar: collapse to horizontal on mobile */
+  .toc-sidebar{
+    position:static !important;
+    width:100% !important;
+    max-height:none !important;
+    border-right:none !important;
+    border-bottom:1px solid var(--gray-100);
+    padding-bottom:1rem !important;
+    margin-bottom:1.5rem !important;
+  }
+  .content-with-toc{
+    display:block !important;
+  }
+  .content-with-toc .content-area{
+    padding-left:0 !important;
+  }
+
+  /* Footer compact */
+  .site-footer{
+    font-size:0.85rem !important;
+  }
+}
 
 /* No uppercase per brand guidelines */
 *{text-transform:none !important}

@@ -55,10 +55,10 @@
       align-items: baseline;
     }
     .nav-logo img {
-      height: 70px;
+      height: 50px;
     }
     .nav-links a {
-      font-size: 19px;
+      font-size: 16px;
       font-weight: 500;
     }
     .nav-links a::after {
@@ -82,7 +82,7 @@
       color: var(--white);
     }
     .nav-logout {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 600;
     }
     .nav-logout:hover {
@@ -212,23 +212,48 @@
       text-align: center;
     }
     /* Mobile overrides */
-    @media (max-width: 768px) {
+    @media (max-width: 1024px) {
+      .top-nav {
+        height: 56px !important;
+        min-height: 56px !important;
+        padding: 0 1.5rem !important;
+        display: flex !important;
+      }
+      .nav-logo img {
+        height: 40px !important;
+      }
+      /* Clean hamburger — no circle */
+      .mobile-nav-toggle {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 6px !important;
+        width: 40px !important;
+        height: 40px !important;
+        top: 8px !important;
+        right: 12px !important;
+      }
+      /* Hero text — zero inner padding so .welcome-hero's 1.5rem aligns with nav logo */
       .welcome-hero-inner {
-        padding-left: 1.5rem;
-        padding-right: 1.5rem;
+        padding-left: 0;
+        padding-right: 0;
         padding-top: 1.5rem;
       }
       .welcome-hero .hero-tag {
         font-size: 1.6em;
       }
       .welcome-hero h1 {
-        font-size: 1.8em;
+        font-size: 1.6em;
       }
       .welcome-hero h2 {
-        font-size: 1.1em;
+        font-size: 1em;
       }
       .welcome-hero p {
-        font-size: 0.9em;
+        font-size: 0.85em;
+      }
+      /* Footer */
+      .site-footer {
+        font-size: 0.85em !important;
       }
     }
   </style>
@@ -255,7 +280,7 @@
 
   <!-- Top Nav -->
   <header class="top-nav">
-    <a href="welcome.html" class="nav-logo"><img src="../shared/logos/ntnx-sko17-logo-stacked-horiz-blk@3x.png" alt="Nutanix Sales Kickoff" height="32"></a>
+    <a href="welcome.html" class="nav-logo"><img src="../shared/logos/nutanix-skofy27-logo-black.png" alt="Nutanix SKO FY27" height="32"></a>
     <nav>
       <ul class="nav-links">
         <li><a href="welcome.html">Welcome</a></li>

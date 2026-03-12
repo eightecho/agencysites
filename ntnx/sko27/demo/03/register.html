@@ -291,6 +291,26 @@
       .login-title { font-size: 3rem; }
       .login-modal { padding: 28px; }
     }
+
+    /* Mobile overrides */
+    @media (max-width: 768px) {
+      .login-modal-overlay {
+        align-items: flex-start !important;
+        padding: 16px 12px !important;
+        overflow-y: auto !important;
+      }
+      .login-modal {
+        padding: 24px 20px !important;
+        margin-top: 8px;
+        max-width: 100% !important;
+      }
+      .login-modal h2 {
+        font-size: 12px !important;
+      }
+      .login-modal p {
+        font-size: 13px !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -310,7 +330,7 @@
 
     <div class="login-content">
       <div class="login-lockup">
-        <img src="../shared/logos/Nutnaix-skofy27-wht@3x.png" alt="Nutanix SKO FY27">
+        <img src="../shared/logos/nutanix-skofy27-logo-white.png" alt="Nutanix SKO FY27">
       </div>
 
       <h1 class="login-title">SKO <span style="letter-spacing:0.06em">FY27</span></h1>

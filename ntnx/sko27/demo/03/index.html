@@ -135,7 +135,7 @@
 
     .login-link a:hover { color: var(--white); }
 
-    /* Horizontal scan lines on login page */
+    /* Horizontal scan lines on login page — hidden when inside iframe (dashboard preview) */
     .login-page::after {
       content: '';
       position: absolute;
@@ -149,6 +149,9 @@
         rgba(120, 85, 250, 0.09) 3px,
         rgba(120, 85, 250, 0.09) 4px
       );
+    }
+    .in-iframe .login-page::after {
+      display: none;
     }
 
     @media (max-width: 540px) {
@@ -184,6 +187,7 @@
     </div>
   </div>
 
+  <script>if(window!==window.top)document.documentElement.classList.add('in-iframe');</script>
   <script src="../shared/site-switcher.js"></script>
 </body>
 </html>
