@@ -32,8 +32,8 @@
   --transition:0.25s ease;
 }
 
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--font-body);font-size:15px;line-height:1.7;color:var(--charcoal);background:var(--white);-webkit-font-smoothing:antialiased}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
+body{font-family:var(--font-body);font-size:15px;line-height:1.7;color:var(--charcoal);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{max-width:100%;display:block}
 a{color:var(--iris);text-decoration:none;transition:color var(--transition)}
 a:hover{color:var(--iris-deep)}
