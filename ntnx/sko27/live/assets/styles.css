@@ -187,14 +187,15 @@ h3{font-size:1.15rem;margin-bottom:.5rem;font-family:var(--font-body);font-weigh
 
 /* Mobile nav drawer */
 .mobile-nav-drawer{
-  position:fixed;top:0;right:-280px;z-index:160;
+  position:fixed;top:0;right:0;z-index:160;
   width:280px;height:100%;background:var(--white);
   box-shadow:-4px 0 20px rgba(0,0,0,.1);
-  transition:right var(--transition);
+  transition:transform var(--transition);
+  transform:translateX(100%);
   padding:5rem 1.5rem 2rem;
   overflow-y:auto;
 }
-.mobile-nav-drawer.is-open{right:0}
+.mobile-nav-drawer.is-open{transform:translateX(0)}
 .mobile-nav-drawer a{
   display:block;padding:.75rem 0;font-size:1rem;color:var(--charcoal);
   border-bottom:1px solid var(--gray-100);
