@@ -81,7 +81,7 @@
       font-weight: 500;
       font-size: 2rem;
     }
-    /* Gradient hero banner — Nexus XX on gradient, no photo */
+    /* Photo hero banner — thin strip, cropped top & bottom */
     .welcome-hero {
       width: 100%;
       max-width: none;
@@ -91,7 +91,6 @@
       position: relative;
       overflow: hidden;
       height: clamp(80px, 10vw, 150px);
-      background: linear-gradient(to right, #5617BF 0%, #4640C4 30%, #2D2795 60%, #1A6B9E 80%, #00CFC0 100%);
       clip-path: polygon(0% 0%, 0% 0%, -20% 100%, 0% 100%);
       animation: diagonalWipe 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.2s forwards;
     }
@@ -101,6 +100,17 @@
     }
     @keyframes fadeInUp {
       to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 55%;
     }
     .hero-nexus-graphic {
       position: absolute;
@@ -117,6 +127,18 @@
       max-height: 100%;
       width: auto;
       display: block;
+    }
+    .hero-wynn-logo {
+      position: absolute;
+      bottom: 8px;
+      right: 16px;
+      z-index: 3;
+    }
+    .hero-wynn-logo img {
+      height: 70px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
     }
     .hero-title {
       position: absolute;
@@ -219,10 +241,16 @@
     </div>
   </header>
 
-  <!-- Gradient Hero Banner — Nexus XX on gradient -->
+  <!-- Photo Hero Banner — diagonal reveal -->
   <div class="welcome-hero">
+    <div class="hero-photo">
+      <img src="assets/img/las-vegas.AdobeStock_541059235.jpeg" alt="Las Vegas skyline">
+    </div>
     <div class="hero-nexus-graphic" aria-hidden="true">
       <img src="assets/img/nexus-xx-skofy27-logo.png" alt="">
+    </div>
+    <div class="hero-wynn-logo">
+      <img src="assets/img/wynn.logo.image.png" alt="Wynn Las Vegas">
     </div>
     <h1 class="hero-title">Hotel</h1>
   </div>
