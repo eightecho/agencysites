@@ -208,7 +208,7 @@ h3{font-size:1.15rem;margin-bottom:.5rem;font-family:var(--font-body);font-weigh
   .nav-links,.nav-right{display:none}
   .top-nav{padding:0 1.5rem;padding-right:4.5rem}
   .nav-logo img{height:40px !important}
-}
+  }
 
 /* ===================================================================
    PAGE BANNER — 120px iris gradient strip
@@ -239,6 +239,9 @@ h3{font-size:1.15rem;margin-bottom:.5rem;font-family:var(--font-body);font-weigh
   padding:2.5rem 1.5rem 4rem;
   display:flex;
   gap:3rem;
+}
+@media(max-width:1024px){
+  .content-area,.content-with-toc{max-width:100vw;overflow-x:hidden}
 }
 
 /* Sticky TOC sidebar */
