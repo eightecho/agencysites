@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome — SKO FY27</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    /* ===== Global Style Guide Overrides ===== */
+    :root {
+      --font-display: 'Montserrat', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+    * {
+      text-transform: none !important;
+      font-family: 'Montserrat', sans-serif !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif !important;
+      text-transform: none !important;
+    }
+    h1 {
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    h2 {
+      font-weight: 700;
+      letter-spacing: 0.01em;
+    }
+    h3 {
+      font-weight: 600;
+    }
+    h4 {
+      font-weight: 600;
+    }
+    /* Top nav */
+    .top-nav {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      height: auto;
+      min-height: 70px;
+    }
+    .top-nav > nav {
+      justify-self: center;
+    }
+    .nav-links {
+      margin: 0;
+      gap: 2rem;
+      align-items: baseline;
+    }
+    .nav-logo img {
+      height: 50px;
+    }
+    .nav-links a {
+      font-size: 16px;
+      font-weight: 500;
+    }
+    .nav-links a::after {
+      display: none;
+    }
+    .nav-links a:hover {
+      color: var(--iris);
+    }
+    .nav-links a.is-active {
+      font-weight: 700;
+      color: var(--iris);
+    }
+    .nav-right {
+      justify-self: end;
+    }
+    .nav-profile {
+      font-size: 16px;
+      padding: 0.5rem 1.3rem;
+    }
+    .nav-profile:hover {
+      color: var(--white);
+    }
+    .nav-logout {
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .nav-logout:hover {
+      color: var(--iris);
+    }
+    /* Welcome hero — photo banner with diagonal reveal */
+    .welcome-hero {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      height: clamp(200px, 25vw, 420px);
+      /* Start clipped — invisible */
+      clip-path: polygon(0% 0%, 0% 0%, -20% 100%, 0% 100%);
+      animation: diagonalWipe 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.2s forwards;
+    }
+    @keyframes diagonalWipe {
+      0% {
+        clip-path: polygon(0% 0%, 0% 0%, -20% 100%, 0% 100%);
+      }
+      100% {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+      }
+    }
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    /* Las Vegas background photo */
+    .hero-photo {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+    }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+    }
+    /* Nexus XX graphic — far left, fully contained within hero */
+    .hero-nexus-graphic {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      box-sizing: border-box;
+    }
+    .hero-nexus-graphic img {
+      max-height: 100%;
+      width: auto;
+      display: block;
+    }
+    /* No overlay on hero photo */
+    /* Wynn logo — bottom right */
+    .hero-wynn-logo {
+      position: absolute;
+      bottom: 16px;
+      right: 24px;
+      z-index: 3;
+    }
+    .hero-wynn-logo img {
+      height: 80px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+    /* Welcome content section below hero */
+    .welcome-content {
+      background: linear-gradient(to right, #5617BF 0%, #4640C4 30%, #2D2795 60%, #1A6B9E 80%, #00CFC0 100%);
+      padding: 2.5rem 1.5rem 3rem;
+      color: #fff;
+      clip-path: polygon(-1% -1%, -1% -1%, -20% 101%, -1% 101%);
+      animation: diagonalWipe 1.2s cubic-bezier(0.77, 0, 0.175, 1) 0.9s forwards;
+    }
+    .welcome-content-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding-left: 13%;
+      padding-right: 2rem;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s ease 1.6s forwards;
+    }
+    .welcome-content .hero-tag {
+      font-size: 2.4em;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.1em;
+      line-height: 1.1;
+      letter-spacing: 0.06em;
+    }
+    .welcome-content h1 {
+      font-size: 2.8em;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 0.6em;
+      letter-spacing: 0;
+    }
+    .welcome-content h2 {
+      font-size: 1.3em;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.8em;
+      letter-spacing: 0;
+    }
+    .welcome-content p {
+      color: rgba(255,255,255,0.92);
+      font-size: 1em;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+    .welcome-content p + p {
+      margin-top: 1em;
+    }
+    /* Footer — align with nav logo (left) and Logout (right) */
+    .site-footer {
+      font-size: 1em;
+      margin-top: 0;
+      padding: 0;
+    }
+    .site-footer .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: none;
+      margin: 0;
+      padding: 1.5rem 2rem;
+    }
+    .site-footer .footer-contact {
+      text-align: left;
+    }
+    /* Mobile nav */
+    .mobile-nav-drawer a {
+      font-size: 0.9em;
+    }
+    .mobile-nav-drawer .mobile-nav-actions {
+      gap: 0.5rem;
+    }
+    .mobile-nav-drawer .mobile-nav-actions .btn {
+      font-size: 16px;
+      font-weight: 600;
+      padding: 0.5rem 1.3rem;
+      text-align: center;
+      color: var(--white);
+    }
+    .mobile-nav-drawer .mobile-nav-actions .nav-logout {
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+    /* Mobile overrides */
+    @media (max-width: 1024px) {
+      .top-nav {
+        height: 56px !important;
+        min-height: 56px !important;
+        padding: 0 1.5rem !important;
+        display: flex !important;
+      }
+      .nav-logo img {
+        height: 40px !important;
+      }
+      /* Clean hamburger — no circle */
+      .mobile-nav-toggle {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 6px !important;
+        width: 40px !important;
+        height: 40px !important;
+        top: 8px !important;
+        right: 12px !important;
+      }
+      /* Hero banner mobile */
+      .welcome-hero {
+        height: 200px;
+      }
+      .hero-nexus-graphic {
+        width: 30%;
+        min-width: 120px;
+      }
+      .hero-nexus-graphic::after {
+        right: -40px;
+        width: 60px;
+      }
+      .hero-wynn-logo {
+        bottom: 10px;
+        right: 14px;
+      }
+      .hero-wynn-logo img {
+        height: 50px;
+      }
+      /* Welcome content mobile */
+      .welcome-content-inner {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .welcome-content .hero-tag {
+        font-size: 1.6em;
+      }
+      .welcome-content h1 {
+        font-size: 1.6em;
+      }
+      .welcome-content h2 {
+        font-size: 1em;
+      }
+      .welcome-content p {
+        font-size: 0.85em;
+      }
+      /* Footer */
+      .site-footer {
+        font-size: 0.85em !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Nav -->
+  <button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
+  <div class="mobile-nav-overlay"></div>
+  <div class="mobile-nav-drawer">
+    <a href="welcome.html">Welcome</a>
+    <a href="general-info.html">General Info</a>
+    <a href="travel.html">Travel &amp; Expenses</a>
+    <a href="hotel.html">Hotel</a>
+    <a href="agenda.html">Agenda</a>
+    <a href="faq.html">FAQ</a>
+    <div class="mobile-nav-actions">
+      <a href="#" class="btn btn-primary">My Profile</a>
+      <a href="index.html" class="nav-logout">Logout</a>
+    </div>
+  </div>
+
+  <!-- Top Nav -->
+  <header class="top-nav">
+    <a href="welcome.html" class="nav-logo"><img src="assets/img/nexus-logo.png" alt="Nutanix SKO FY27" height="32"></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="welcome.html">Welcome</a></li>
+        <li><a href="general-info.html">General Info</a></li>
+        <li><a href="travel.html">Travel &amp; Expenses</a></li>
+        <li><a href="hotel.html">Hotel</a></li>
+        <li><a href="agenda.html">Agenda</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a href="#" class="nav-profile">My Profile</a>
+      <a href="index.html" class="nav-logout">Logout</a>
+    </div>
+  </header>
+
+  <!-- Welcome Hero — Photo banner with diagonal reveal -->
+  <div class="welcome-hero">
+    <div class="hero-photo">
+      <img src="assets/img/las-vegas.AdobeStock_541059235.jpeg" alt="Las Vegas skyline">
+    </div>
+    <div class="hero-nexus-graphic" aria-hidden="true">
+      <img src="assets/img/nexus-xx-skofy27-logo.png" alt="">
+    </div>
+    <div class="hero-wynn-logo">
+      <img src="assets/img/wynn.logo.image.png" alt="Wynn Las Vegas">
+    </div>
+  </div>
+
+  <!-- Welcome content -->
+  <div class="welcome-content">
+    <div class="welcome-content-inner">
+      <h1>Welcome to<br>Nutanix Sales Kickoff<br><span style="letter-spacing:0.06em">FY27</span></h1>
+      <h2>Event Overview</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin aliquam facilisis ante interdum. Sed nulla amet lorem feugiat tempus. Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus.</p>
+      <p>Pellentesque in ipsum id orci porta dapibus. Cras ultricies ligula sed magna dictum porta. Proin eget tortor risus.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-contact">
+        <strong>SKO <span style="letter-spacing:0.06em">FY27</span> Registration Team</strong><br>
+        Email: <a href="#">lorem@ipsum.com</a> &middot; Hours: Monday&ndash;Friday, 8:00 AM&ndash;5:00 PM PDT
+      </div>
+      <div>&copy; <span id="year"></span> Nutanix, Inc.</div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js?v=2"></script>
+  <script src="../shared/site-switcher.js"></script>
+</body>
+</html>

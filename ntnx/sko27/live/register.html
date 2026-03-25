@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — Nutanix SKO FY27</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    :root {
+      --font-display: 'Montserrat', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+    * {
+      text-transform: none !important;
+      font-family: 'Montserrat', sans-serif !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif !important;
+      text-transform: none !important;
+    }
+    h1 { font-weight: 800; letter-spacing: 0.02em; }
+    h2 { font-weight: 700; letter-spacing: 0.01em; }
+    h3 { font-weight: 600; }
+    h4 { font-weight: 600; }
+    .login-nexus-art { opacity: 0.3; }
+
+    /* Show background through modal */
+    .login-content { display: none; }
+    .login-modal-overlay { display: flex !important; background: transparent !important; backdrop-filter: none !important; }
+
+    .form-hint {
+      font-size: 0.75rem;
+      color: var(--gray-400);
+      margin: -8px 0 16px;
+      line-height: 1.5;
+    }
+
+    .form-checkbox {
+      margin-bottom: 20px;
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      line-height: 1.5;
+    }
+
+    .form-checkbox label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      cursor: pointer;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    .form-checkbox input[type="checkbox"] {
+      margin-top: 3px;
+      flex-shrink: 0;
+      accent-color: var(--iris);
+    }
+
+    .form-checkbox a {
+      color: var(--iris);
+      text-decoration: none;
+    }
+
+    .form-checkbox a:hover { color: var(--iris-deep); }
+
+    .form-bottom-link {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: var(--gray-500);
+      text-align: center;
+    }
+
+    .form-bottom-link a {
+      color: var(--iris);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .form-bottom-link a:hover { color: var(--iris-deep); }
+
+    .login-modal-close {
+      text-decoration: none;
+    }
+
+    /* Mobile overrides */
+    @media (max-width: 768px) {
+      .login-modal-overlay {
+        align-items: flex-start !important;
+        padding: 16px 12px !important;
+        overflow-y: auto !important;
+      }
+      .login-modal {
+        padding: 24px 20px !important;
+        margin-top: 8px;
+        max-width: 100% !important;
+      }
+      .login-modal h2 {
+        font-size: 12px !important;
+      }
+      .login-modal p {
+        font-size: 13px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="login-page">
+    <!-- Gradient background with Nexus art -->
+    <div class="login-left" style="flex:1;position:absolute;inset:0;">
+      <div class="login-nexus-art" aria-hidden="true">
+        <svg viewBox="0 0 800 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <linearGradient id="nxLine" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35"/>
+              <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.12"/>
+            </linearGradient>
+          </defs>
+          <g fill="none" stroke="url(#nxLine)" stroke-width="1.5">
+            <path d="M100 50 L400 350 L100 650 L-200 350 Z"/>
+            <path d="M500 200 L750 450 L500 700 L250 450 Z"/>
+            <path d="M300 -100 L600 200 L300 500 L0 200 Z"/>
+            <path d="M600 500 L850 750 L600 1000 L350 750 Z"/>
+          </g>
+          <g opacity="0.14" stroke="#FFFFFF" stroke-width="0.5">
+            <line x1="0" y1="0" x2="800" y2="900"/>
+            <line x1="800" y1="0" x2="0" y2="900"/>
+            <line x1="400" y1="0" x2="400" y2="900"/>
+            <line x1="0" y1="450" x2="800" y2="450"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Centered content -->
+    <div class="login-content">
+      <div class="login-lockup">
+        <img src="../shared/logos/nutanix-skofy27-logo-white.png" alt="Nutanix SKO FY27" style="height:48px;">
+      </div>
+
+      <h1 class="login-title">SKO <span style="letter-spacing:0.06em">FY27</span></h1>
+      <p class="login-date">Lorem ipsum dolor sit &middot; Consectetur adipiscing</p>
+
+      <div class="login-actions">
+        <a href="register.html" class="btn btn-primary">Register Now</a>
+        <p class="login-link">Already have an account? <a href="login.html">Log in here</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div class="login-modal-overlay" id="registerModal">
+    <div class="login-modal">
+      <a href="index.html" class="login-modal-close">Close &times;</a>
+
+      <img class="logo-modal" src="../shared/logos/Nutanix-Logo-Charcoal-Gray-Digital@3x.png" alt="Nutanix" style="height:22px;">
+
+      <h2>Registration</h2>
+      <p>Welcome to the SKO <span style="letter-spacing:0.06em">FY27</span> registration page. Please enter your email address below and create a password to begin your registration. If you've already registered and would like to make changes to your information, please click 'Log in' below.</p>
+
+      <h2 class="mt-3">Register Now</h2>
+      <form onsubmit="return false;">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" id="email" value="DEMO" readonly>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="text" id="password" value="Click Register Now" readonly>
+        </div>
+        <p class="form-hint">Password must be alphanumeric and contain at least 8 characters.</p>
+        <div class="form-checkbox">
+          <label>
+            <input type="checkbox">
+            By subscribing to this event, I agree to the processing of my personal data by Nutanix as described in the Nutanix Privacy Statement.*
+          </label>
+        </div>
+        <a href="welcome.html" class="btn btn-primary">Register Now</a>
+        <p class="form-bottom-link">Already Registered? <a href="login.html">Log in here</a>.</p>
+        <p class="form-bottom-link"><a href="#">Nutanix Privacy Statement</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="../shared/site-switcher.js"></script>
+</body>
+</html>

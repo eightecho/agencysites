@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hotel — SKO FY27</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    /* ===== Global Style Guide Overrides ===== */
+    :root {
+      --font-display: 'Montserrat', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+    * {
+      text-transform: none !important;
+      font-family: 'Montserrat', sans-serif !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif !important;
+      text-transform: none !important;
+    }
+    h1 { font-weight: 800; letter-spacing: 0.02em; }
+    h2 { font-weight: 700; letter-spacing: 0.01em; }
+    h3 { font-weight: 600; }
+    h4 { font-weight: 600; }
+    .top-nav {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      height: auto;
+      min-height: 70px;
+    }
+    .top-nav > nav { justify-self: center; }
+    .nav-links { margin: 0; gap: 2rem; align-items: baseline; }
+    .nav-logo img { height: 50px; }
+    .nav-links a { font-size: 16px; font-weight: 500; }
+    .nav-links a::after { display: none; }
+    .nav-links a:hover { color: var(--iris); }
+    .nav-links a.is-active { font-weight: 700; color: var(--iris); }
+    .nav-right { justify-self: end; }
+    .nav-profile { font-size: 16px; padding: 0.5rem 1.3rem; }
+    .nav-profile:hover { color: var(--white); }
+    .nav-logout { font-size: 15px; font-weight: 600; }
+    .nav-logout:hover { color: var(--iris); }
+    .site-footer { font-size: 1em; }
+    .mobile-nav-drawer a { font-size: 0.9em; }
+    .mobile-nav-drawer .mobile-nav-actions {
+      gap: 0.5rem;
+    }
+    .mobile-nav-drawer .mobile-nav-actions .btn {
+      font-size: 16px;
+      font-weight: 600;
+      padding: 0.5rem 1.3rem;
+      text-align: center;
+      color: var(--white);
+    }
+    .mobile-nav-drawer .mobile-nav-actions .nav-logout {
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+    /* TOC sidebar overrides */
+    .toc-sidebar a {
+      font-size: 1rem;
+      border-left-width: 3px;
+    }
+    .toc-sidebar a:hover {
+      border-color: var(--iris);
+    }
+    .toc-sidebar a.is-active {
+      border-left-width: 3px;
+    }
+    /* Content section h2 */
+    .toc-content h2,
+    .content-area h2 {
+      font-weight: 500;
+      font-size: 2rem;
+    }
+    /* Gradient hero banner — Nexus XX on gradient, no photo */
+    .welcome-hero {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      height: clamp(80px, 10vw, 150px);
+      background: linear-gradient(to right, #5617BF 0%, #4640C4 30%, #2D2795 60%, #1A6B9E 80%, #00CFC0 100%);
+      clip-path: polygon(0% 0%, 0% 0%, -20% 100%, 0% 100%);
+      animation: diagonalWipe 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.2s forwards;
+    }
+    @keyframes diagonalWipe {
+      0% { clip-path: polygon(0% 0%, 0% 0%, -20% 100%, 0% 100%); }
+      100% { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-nexus-graphic {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .hero-nexus-graphic img {
+      max-height: 100%;
+      width: auto;
+      display: block;
+    }
+    .hero-title {
+      position: absolute;
+      z-index: 3;
+      color: #fff;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      font-weight: 700;
+      margin: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    /* Mobile overrides */
+    @media (max-width: 1024px) {
+      .top-nav {
+        height: 56px !important;
+        min-height: 56px !important;
+        padding: 0 1.5rem !important;
+        display: flex !important;
+      }
+      .nav-logo img {
+        height: 32px !important;
+      }
+      .mobile-nav-toggle {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 6px !important;
+        width: 40px !important;
+        height: 40px !important;
+        top: 8px !important;
+        right: 12px !important;
+      }
+      .welcome-hero {
+        height: 60px;
+      }
+      .hero-nexus-graphic {
+        height: 200px;
+      }
+      body {
+        font-size: 14px !important;
+      }
+      h2 {
+        font-size: clamp(1.2rem, 3.5vw, 1.5rem) !important;
+      }
+      .toc-sidebar {
+        position: static !important;
+        width: 100% !important;
+      }
+      .content-with-toc {
+        display: block !important;
+      }
+      .content-area {
+        padding-left: 0 !important;
+      }
+      .site-footer {
+        font-size: 0.85em !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Nav -->
+  <button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
+  <div class="mobile-nav-overlay"></div>
+  <div class="mobile-nav-drawer">
+    <a href="welcome.html">Welcome</a>
+    <a href="general-info.html">General Info</a>
+    <a href="travel.html">Travel &amp; Expenses</a>
+    <a href="hotel.html">Hotel</a>
+    <a href="agenda.html">Agenda</a>
+    <a href="faq.html">FAQ</a>
+    <div class="mobile-nav-actions">
+      <a href="#" class="btn btn-primary">My Profile</a>
+      <a href="index.html" class="nav-logout">Logout</a>
+    </div>
+  </div>
+
+  <!-- Top Nav -->
+  <header class="top-nav">
+    <a href="index.html" class="nav-logo"><img src="assets/img/nexus-logo.png" alt="Nutanix SKO FY27" height="32"></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="welcome.html">Welcome</a></li>
+        <li><a href="general-info.html">General Info</a></li>
+        <li><a href="travel.html">Travel &amp; Expenses</a></li>
+        <li><a href="hotel.html">Hotel</a></li>
+        <li><a href="agenda.html">Agenda</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a href="#" class="nav-profile">My Profile</a>
+      <a href="index.html" class="nav-logout">Logout</a>
+    </div>
+  </header>
+
+  <!-- Gradient Hero Banner — Nexus XX on gradient -->
+  <div class="welcome-hero">
+    <div class="hero-nexus-graphic" aria-hidden="true">
+      <img src="assets/img/nexus-xx-skofy27-logo.png" alt="">
+    </div>
+    <h1 class="hero-title">Hotel</h1>
+  </div>
+
+  <!-- Content with TOC -->
+  <div class="content-with-toc">
+
+    <!-- Sticky TOC Sidebar -->
+    <aside class="toc-sidebar" data-animate>
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#location">Location</a></li>
+        <li><a href="#room-block">Hotel Room Block</a></li>
+        <li><a href="#arrival-policy">Arrival Policy</a></li>
+        <li><a href="#extensions">Extensions</a></li>
+        <li><a href="#internet">Internet Access</a></li>
+        <li><a href="#smoking">Smoking Policy</a></li>
+        <li><a href="#gratuity">Gratuity Guidelines</a></li>
+        <li><a href="#hotel-charges">Hotel Charges</a></li>
+        <li><a href="#cancellation">Cancellation Policy</a></li>
+        <li><a href="#accessibility">Hotel Accessibility</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="toc-content">
+
+      <section id="location" class="content-section" data-animate>
+        <h2>Location</h2>
+        <p><strong>Lorem Ipsum Dolor Sit</strong><br>
+        Vivamus elementum semper nisi<br>
+        Aenean vulputate eleifend tellus<br>
+        Lorem: (000) 000-0000<br>
+        <a href="#">Lorem Ipsum</a> &middot; <a href="#">Dolor Sit Amet</a></p>
+      </section>
+
+      <section id="room-block" class="content-section" data-animate>
+        <h2>Hotel Room Block</h2>
+        <p>Fusce vulputate eleifend sapien. Vestibulum purus quam, scelerisque ut mollis sed, nonummy id metus. Nullam accumsan lorem in dui. <strong>Cras ultricies ligula sed magna dictum porta.</strong></p>
+      </section>
+
+      <section id="arrival-policy" class="content-section" data-animate>
+        <h2>Arrival Policy</h2>
+        <p>Praesent blandit laoreet nibh. Fusce convallis metus id felis luctus adipiscing. Pellentesque egestas neque sit amet convallis pulvinar justo nulla aliquet porttitor.</p>
+      </section>
+
+      <section id="extensions" class="content-section" data-animate>
+        <h2>Extensions</h2>
+        <p>Maecenas ullamcorper dui et placerat feugiat eros tortor convallis at <a href="#">lorem@ipsum.com</a>. Integer tincidunt cras dapibus vivamus elementum semper nisi.</p>
+        <div class="callout mt-2"><strong>Lorem ipsum:</strong> Sed augue ipsum egestas nec vestibulum et molestie sit amet feugiat in lacus dapibus condimentum.</div>
+      </section>
+
+      <section id="internet" class="content-section" data-animate>
+        <h2>Internet Access</h2>
+        <p>Phasellus consectetuer vestibulum elit. Aenean tellus metus, bibendum sed, posuere ac, mattis non nunc. Vestibulum fringilla pede sit amet augue.</p>
+      </section>
+
+      <section id="smoking" class="content-section" data-animate>
+        <h2>Smoking Policy</h2>
+        <p>In turpis pellentesque egestas neque sit amet convallis pulvinar. Cras dapibus vivamus elementum semper nisi aenean vulputate eleifend tellus. Nullam dictum felis eu pede mollis pretium integer tincidunt.</p>
+        <p>Fusce vulputate eleifend sapien vestibulum purus quam scelerisque ut mollis sed nonummy id metus. Nullam accumsan lorem in dui cras ultricies ligula sed magna dictum porta.</p>
+      </section>
+
+      <section id="gratuity" class="content-section" data-animate>
+        <h2>Gratuity Guidelines</h2>
+        <p>Donec pede justo fringilla vel aliquet nec vulputate eget arcu. In enim justo rhoncus ut imperdiet a venenatis vitae justo. Nullam dictum felis eu pede mollis pretium: <a href="#">In Enim Justo Rhoncus</a>.</p>
+        <p>Integer tincidunt cras dapibus vivamus elementum semper nisi. Aenean vulputate eleifend tellus aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
+      </section>
+
+      <section id="hotel-charges" class="content-section" data-animate>
+        <h2>Hotel Charges</h2>
+        <p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt cras dapibus. Vivamus elementum semper nisi aenean vulputate eleifend tellus. Aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
+      </section>
+
+      <section id="cancellation" class="content-section" data-animate>
+        <h2>Cancellation Policy</h2>
+        <p>Aliquam lorem ante dapibus in viverra quis feugiat <a href="#">lorem@ipsum.com</a>. Phasellus viverra nulla ut metus varius laoreet <strong>quisque rutrum</strong> aenean imperdiet etiam ultricies nisi vel augue.</p>
+      </section>
+
+      <section id="accessibility" class="content-section" data-animate>
+        <h2>Hotel Accessibility</h2>
+        <p>Curabitur ullamcorper ultricies nisi nam eget dui. Etiam rhoncus maecenas tempus tellus eget condimentum rhoncus sem quam semper libero sit amet adipiscing sem neque sed ipsum: <a href="#">lorem@ipsum.com</a>.</p>
+        <p>Nam quam nunc blandit vel luctus pulvinar hendrerit id lorem. Maecenas nec odio et ante tincidunt tempus donec vitae sapien ut libero venenatis faucibus.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-contact">
+        <strong>SKO <span style="letter-spacing:0.06em">FY27</span> Registration Team</strong><br>
+        Email: <a href="#">lorem@ipsum.com</a> &middot; Hours: Monday&ndash;Friday, 8:00 AM&ndash;5:00 PM PDT
+      </div>
+      <div>&copy; <span id="year"></span> Nutanix, Inc.</div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js?v=2"></script>
+  <script src="../shared/site-switcher.js"></script>
+</body>
+</html>

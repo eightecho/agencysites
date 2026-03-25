@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel & Expenses — SKO FY27</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    /* ===== Global Style Guide Overrides ===== */
+    :root {
+      --font-display: 'Montserrat', sans-serif;
+      --font-body: 'Montserrat', sans-serif;
+    }
+    * {
+      text-transform: none !important;
+      font-family: 'Montserrat', sans-serif !important;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'Montserrat', sans-serif !important;
+      text-transform: none !important;
+    }
+    h1 { font-weight: 800; letter-spacing: 0.02em; }
+    h2 { font-weight: 700; letter-spacing: 0.01em; }
+    h3 { font-weight: 600; }
+    h4 { font-weight: 600; }
+    .top-nav {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      padding: 0.75rem 2rem;
+      height: auto;
+      min-height: 70px;
+    }
+    .top-nav > nav { justify-self: center; }
+    .nav-links { margin: 0; gap: 2rem; align-items: baseline; }
+    .nav-logo img { height: 50px; }
+    .nav-links a { font-size: 16px; font-weight: 500; }
+    .nav-links a::after { display: none; }
+    .nav-links a:hover { color: var(--iris); }
+    .nav-links a.is-active { font-weight: 700; color: var(--iris); }
+    .nav-right { justify-self: end; }
+    .nav-profile { font-size: 16px; padding: 0.5rem 1.3rem; }
+    .nav-profile:hover { color: var(--white); }
+    .nav-logout { font-size: 15px; font-weight: 600; }
+    .nav-logout:hover { color: var(--iris); }
+    .site-footer { font-size: 1em; }
+    .mobile-nav-drawer a { font-size: 0.9em; }
+    .mobile-nav-drawer .mobile-nav-actions {
+      gap: 0.5rem;
+    }
+    .mobile-nav-drawer .mobile-nav-actions .btn {
+      font-size: 16px;
+      font-weight: 600;
+      padding: 0.5rem 1.3rem;
+      text-align: center;
+      color: var(--white);
+    }
+    .mobile-nav-drawer .mobile-nav-actions .nav-logout {
+      font-size: 16px;
+      font-weight: 600;
+      text-align: center;
+    }
+    /* TOC sidebar overrides */
+    .toc-sidebar a {
+      font-size: 1rem;
+      border-left-width: 3px;
+    }
+    .toc-sidebar a:hover {
+      border-color: var(--iris);
+    }
+    .toc-sidebar a.is-active {
+      border-left-width: 3px;
+    }
+    /* Content section h2 */
+    .toc-content h2,
+    .content-area h2 {
+      font-weight: 500;
+      font-size: 2rem;
+    }
+    /* Gradient hero banner — Nexus XX on gradient with title */
+    .welcome-hero {
+      width: 100%;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+      text-align: left;
+      position: relative;
+      overflow: hidden;
+      height: clamp(80px, 10vw, 150px);
+      background: linear-gradient(to right, #5617BF 0%, #4640C4 30%, #2D2795 60%, #1A6B9E 80%, #00CFC0 100%);
+      clip-path: polygon(0% 0%, 0% 0%, -20% 100%, 0% 100%);
+      animation: diagonalWipe 1.4s cubic-bezier(0.77, 0, 0.175, 1) 0.2s forwards;
+    }
+    @keyframes diagonalWipe {
+      0% { clip-path: polygon(0% 0%, 0% 0%, -20% 100%, 0% 100%); }
+      100% { clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%); }
+    }
+    @keyframes fadeInUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-nexus-graphic {
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      height: 350px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .hero-nexus-graphic img {
+      max-height: 100%;
+      width: auto;
+      display: block;
+    }
+    .hero-title {
+      position: absolute;
+      z-index: 3;
+      color: #fff;
+      font-size: clamp(1.8rem, 3vw, 3rem);
+      font-weight: 700;
+      margin: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    }
+    /* Mobile overrides */
+    @media (max-width: 1024px) {
+      .top-nav {
+        height: 56px !important;
+        min-height: 56px !important;
+        padding: 0 1.5rem !important;
+        display: flex !important;
+      }
+      .nav-logo img {
+        height: 32px !important;
+      }
+      .mobile-nav-toggle {
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        border-radius: 6px !important;
+        width: 40px !important;
+        height: 40px !important;
+        top: 8px !important;
+        right: 12px !important;
+      }
+      .welcome-hero {
+        height: 60px;
+      }
+      .hero-nexus-graphic {
+        height: 200px;
+      }
+      body {
+        font-size: 14px !important;
+      }
+      h2 {
+        font-size: clamp(1.2rem, 3.5vw, 1.5rem) !important;
+      }
+      .toc-sidebar {
+        position: static !important;
+        width: 100% !important;
+      }
+      .content-with-toc {
+        display: block !important;
+      }
+      .content-area {
+        padding-left: 0 !important;
+      }
+      .site-footer {
+        font-size: 0.85em !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Mobile Nav -->
+  <button class="mobile-nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+  </button>
+  <div class="mobile-nav-overlay"></div>
+  <div class="mobile-nav-drawer">
+    <a href="welcome.html">Welcome</a>
+    <a href="general-info.html">General Info</a>
+    <a href="travel.html">Travel &amp; Expenses</a>
+    <a href="hotel.html">Hotel</a>
+    <a href="agenda.html">Agenda</a>
+    <a href="faq.html">FAQ</a>
+    <div class="mobile-nav-actions">
+      <a href="#" class="btn btn-primary">My Profile</a>
+      <a href="index.html" class="nav-logout">Logout</a>
+    </div>
+  </div>
+
+  <!-- Top Nav -->
+  <header class="top-nav">
+    <a href="index.html" class="nav-logo"><img src="assets/img/nexus-logo.png" alt="Nutanix SKO FY27" height="32"></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="welcome.html">Welcome</a></li>
+        <li><a href="general-info.html">General Info</a></li>
+        <li><a href="travel.html">Travel &amp; Expenses</a></li>
+        <li><a href="hotel.html">Hotel</a></li>
+        <li><a href="agenda.html">Agenda</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <a href="#" class="nav-profile">My Profile</a>
+      <a href="index.html" class="nav-logout">Logout</a>
+    </div>
+  </header>
+
+  <!-- Gradient Hero Banner — Nexus XX on gradient with title -->
+  <div class="welcome-hero">
+    <div class="hero-nexus-graphic" aria-hidden="true">
+      <img src="assets/img/nexus-xx-skofy27-logo.png" alt="">
+    </div>
+    <h1 class="hero-title">Travel &amp; Expenses</h1>
+  </div>
+
+  <!-- Content with TOC -->
+  <div class="content-with-toc">
+
+    <!-- Sticky TOC Sidebar -->
+    <aside class="toc-sidebar" data-animate>
+      <h4>On This Page</h4>
+      <ul>
+        <li><a href="#flights">Flights</a></li>
+        <li><a href="#travel">Travel</a></li>
+        <li><a href="#ground-transportation">Ground Transportation</a></li>
+        <li><a href="#expense-info">Expense Information</a></li>
+        <li><a href="#meal-guidelines">Meal Guidelines</a></li>
+        <li><a href="#passport-visa">Passport &amp; Visa</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <div class="toc-content">
+
+      <section id="flights" class="content-section" data-animate>
+        <h2>Flights</h2>
+        <p><strong>Suspendisse potenti nullam porttitor lacus at turpis donec posuere.</strong> Aenean massa cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+        <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis sem. Nulla consequat massa quis enim. <a href="#">Lorem Ipsum Dolor</a> sit amet consectetur.</p>
+        <p>In enim justo, rhoncus ut imperdiet: <a href="#">Vestibulum Ante Ipsum Primis</a>.</p>
+      </section>
+
+      <section id="travel" class="content-section" data-animate>
+        <h2>Travel</h2>
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque. <strong><u>Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</u></strong> Ut enim ad minima veniam quis nostrum exercitationem. <strong><u>Quis autem vel eum iure reprehenderit qui in ea voluptate.</u></strong></p>
+        <div class="callout mt-2">Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint.</div>
+      </section>
+
+      <section id="ground-transportation" class="content-section" data-animate>
+        <h2>Ground Transportation</h2>
+        <p>Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.</p>
+        <p class="mt-2"><strong>Nam libero tempore cum soluta nobis est.</strong> Eligendi optio cumque nihil impedit <a href="#">Quo Minus Id Quod Maxime</a> placeat facere possimus.</p>
+        <p class="mt-2"><strong>Lorem Ipsum Dolor Sit</strong><br>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis <a href="#">lorem@ipsum.com</a> praesentium voluptatum deleniti atque corrupti.</p>
+      </section>
+
+      <section id="expense-info" class="content-section" data-animate>
+        <h2>Expense Information</h2>
+        <p>Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+        <p class="mt-2">Vel illum qui dolorem eum fugiat: <a href="#">Nemo Enim Ipsam Voluptatem</a>.</p>
+        <p class="mt-2"><strong>Lorem ipsum dolor sit amet:</strong></p>
+        <ul>
+          <li>Suspendisse potenti cras mollis nec</li>
+          <li>Praesent egestas tristique nibh sed</li>
+          <li>Fusce convallis metus id felis luctus</li>
+        </ul>
+      </section>
+
+      <section id="meal-guidelines" class="content-section" data-animate>
+        <h2>Meal Offerings and Guidelines</h2>
+        <ul>
+          <li>Curabitur ligula sapien tincidunt non euismod vitae</li>
+          <li>Phasellus volutpat metus eget egestas mollis lacinia</li>
+          <li>Vestibulum fringilla pede sit amet augue praesent</li>
+        </ul>
+        <p class="mt-2"><strong>Lorem Ipsum:</strong></p>
+        <ul>
+          <li>Sed consequat auctor neque. Nulla facilisi cras non velit nec nisi vulputate nonummy.</li>
+          <li>Maecenas tincidunt lacus at velit vivamus vel nulla eget eros elementum.</li>
+        </ul>
+        <p class="mt-2"><strong>Pellentesque Habitant Morbi:</strong></p>
+        <ul>
+          <li>Tristique senectus et netus et malesuada fames ac turpis egestas. <strong>Proin pharetra nonummy pede mauris.</strong></li>
+          <li>Aenean nec lorem in tellus dignissim lacus viverra.</li>
+          <li>Quisque porta volutpat erat semper rutrum nulla purus.</li>
+        </ul>
+      </section>
+
+      <section id="passport-visa" class="content-section" data-animate>
+        <h2>Important Passport and Visa Information</h2>
+        <p>Phasellus in felis donec semper sapien a libero nam dui proin leo odio porttitor id varius et dapibus ut: <a href="#">https://lorem.ipsum.dolor/amet</a></p>
+        <p class="mt-2">Nam pretium turpis et arcu. Duis arcu tortor suscipit eget imperdiet nec. Vivamus elementum semper nisi aenean vulputate eleifend tellus aenean leo ligula porttitor eu consequat vitae eleifend ac enim.</p>
+        <p class="mt-2"><strong>Lorem Ipsum Dolor</strong><br>Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula porttitor eu consequat vitae.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-contact">
+        <strong>SKO <span style="letter-spacing:0.06em">FY27</span> Registration Team</strong><br>
+        Email: <a href="#">lorem@ipsum.com</a> &middot; Hours: Monday&ndash;Friday, 8:00 AM&ndash;5:00 PM PDT
+      </div>
+      <div>&copy; <span id="year"></span> Nutanix, Inc.</div>
+    </div>
+  </footer>
+
+  <script src="assets/main.js?v=2"></script>
+  <script src="../shared/site-switcher.js"></script>
+</body>
+</html>
